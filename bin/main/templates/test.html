@@ -1,0 +1,129 @@
+<!doctype html>
+<html xmlns:th="https://www:thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery点击弹窗图片放大预览查看</title>
+
+    <link href="/static/picture-preview/css/pictureViewer.css" rel="stylesheet">
+    <style type="text/css">
+        p.speech{
+            position: relative;
+            width: 200px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            background-color: #fff;
+            border: 8px solid #666;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            border-radius: 30px;
+            -webkit-box-shadow: 2px 2px 4px #888;
+            -moz-box-shadow: 2px 2px 4px #888;
+            box-shadow: 2px 2px 4px #888;
+        }
+        p.speech:before{
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: 30px;
+            top: 100px;
+            border: 25px solid;
+            border-color: #666 transparent transparent #666;
+        }
+        p.speech:after{
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: 38px;
+            top: 100px;
+            border: 15px solid;
+            border-color: #fff transparent transparent #fff;
+        }
+        p.thought{
+            position: relative;
+            width: 130px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            background-color: #fff;
+            border: 8px solid #666;
+            -webkit-border-radius: 58px;
+            -moz-border-radius: 58px;
+            border-radius: 58px;
+            -webkit-box-shadow: 2px 2px 4px #888;
+            -moz-box-shadow: 2px 2px 4px #888;
+            box-shadow: 2px 2px 4px #888;
+        }
+        p.thought:before, p.thought:after{
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 70px;
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            border: 8px solid #666;
+            -webkit-border-radius: 28px;
+            -moz-border-radius: 28px;
+            border-radius: 28px;
+            z-index:5;
+        }
+        p.thought:after{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: 5px;
+            top: 100px;
+            -webkit-border-radius: 18px;
+            -moz-border-radius: 18px;
+            border-radius: 18px;
+            z-index:6;
+        }
+    </style>
+
+</head>
+<body>
+<p class="speech"></p>
+<p class="thought">I think...</p>
+
+<div class="main-content">
+    <h4 class="title">点击任意图片使用插件</h4>
+    <h3 class="title">交互：ESC键关闭弹框，左键、右键和鼠标滚轮切换图片</h3>
+    <div class="image-list">
+        <div class="cover"><img src="/static/picture-preview/images/0.png" alt=""></div>
+        <div class="cover"><img src="/static/picture-preview/images/1.png" alt=""></div>
+        <div class="cover"><img src="/static/picture-preview/images/2.png" alt=""></div>
+        <div class="cover"><img src="/static/picture-preview/images/3.png" alt=""></div>
+        <div class="cover"><img src="/static/picture-preview/images/4.png" alt=""></div>
+        <div class="cover"><img src="/static/picture-preview/images/5.png" alt=""></div>
+    </div>
+</div>
+
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="/static/picture-preview/js/jquery.mousewheel.min.js"></script>
+<script src="/static/picture-preview/js/pictureViewer.js"></script>
+<script>
+    $(function () {
+        $('.image-list').on('click', '.cover', function () {
+            var this_ = $(this);
+            var images = this_.parents('.image-list').find('.cover');
+            var imagesArr = new Array();
+            $.each(images, function (i, image) {
+                imagesArr.push($(image).children('img').attr('src'));
+            });
+            $.pictureViewer({
+                images: imagesArr, //需要查看的图片，数据类型为数组
+                initImageIndex: this_.index() + 1, //初始查看第几张图片，默认1
+                scrollSwitch: true //是否使用鼠标滚轮切换图片，默认false
+            });
+        });
+    });
+</script>
+
+
+</body>
+</html>

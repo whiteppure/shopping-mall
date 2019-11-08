@@ -1,0 +1,11 @@
+server:
+  port: 8082
+#  servlet:
+#    context-path: /shopping
+spring:
+  mvc:
+    static-path-pattern: /**
+  profiles:
+    active: test
+  application:
+    name: application-test.yml

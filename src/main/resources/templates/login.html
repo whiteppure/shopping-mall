@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www:thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate">
+    <META HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+    <META HTTP-EQUIV="expires" CONTENT="0">
+    <title>shopping-mall-Demo-登录</title>
+    <!-- Jquery -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/pre-login.js"></script>
+
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon"/>
+    <link href="/static/css/login.css" rel="stylesheet">
+    <!--- font -->
+    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+<span class="loading"></span>
+<!-- 提示信息 -->
+<div class="msgFiled">
+    <i class="fa fa-times" aria-hidden="true"></i>
+    <span  name="error-message"></span>
+</div>
+<!--<input type="hidden"  th:value="${session.user}" name="user">-->
+<div class="container-wrapper">
+    <div class="shopping-mall-logo animated fadeInUp"><span><a href="/shopping-mall">shopping-mall</a></span></div>
+    <div class="animated">
+        <form class="ant-form ant-form-vertical" name="login-form">
+            <!-- 手机号 邮箱 -->
+            <div class="animated fadeInUp ant-row ant-form-item" style="animation-delay: 0.1s;">
+                <div class="ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                            <span class="ant-form-item-children">
+                                <span class="ant-input-affix-wrapper">
+                                    <span class="ant-input-prefix">
+                                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                                    </span>
+                                    <input placeholder="手机号/邮箱" type="text" class="ant-input" id="account" required="required">
+                                </span>
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <!--密码 -->
+            <div class="animated fadeInUp ant-row ant-form-item" style="animation-delay: 0.2s;">
+                <div class="ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                            <span class="ant-form-item-children">
+                                <span class="ant-input-affix-wrapper">
+                                    <span class="ant-input-prefix">
+                                        <i class="anticon anticon-lock" style="color: rgba(0, 0, 0, 0.25);">
+                                            <svg viewBox="64 64 896 896" data-icon="lock" width="1em" height="1em"
+                                                 fill="currentColor" aria-hidden="true" focusable="false" class="">
+                                                <path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z">
+
+                                                </path>
+                                            </svg>
+                                        </i>
+                                    </span>
+                                    <input placeholder="密码" type="password" class="ant-input" id="password" required="required">
+                                </span>
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <!-- 验证码-->
+            <div class="animated fadeInUp ant-row ant-form-item" style="display: inline-block; width: 45%; animation-delay: 0.1s;">
+                <div class="ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                            <span class="ant-input-affix-wrapper">
+                                <span class="ant-input-prefix">
+                                    <i class="anticon anticon-user" style="color: rgba(0, 0, 0, 0.25);">
+                                        <i class="fa fa-key" aria-hidden="true"></i>
+                                    </i>
+                                </span>
+                                <input placeholder="验证码" autocomplete="off" type="text" class="ant-input" id="code" required="required">
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="check-code">
+                <img src="/images/code" class="check-code-img">
+            </div>
+            <!-- 登录按钮-->
+            <div class="animated fadeInUp ant-row ant-form-item" style="animation-delay: 0.3s;">
+                <div class="ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                            <span class="ant-form-item-children">
+                                <button id="login" type="submit" class="ant-btn ant-btn-primary ant-btn-block">
+                                        <span>登 录</span>
+                                </button>
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <!--  注册  -->
+            <div class="ant-row">
+                <a href="/shopping-mall/register" class="tip animated fadeInUp" style="animation-delay: 0.4s;">
+                    用户注册
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/static/js/login.js"></script>
+</body>
+</html>

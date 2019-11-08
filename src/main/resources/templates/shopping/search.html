@@ -1,0 +1,67 @@
+<!doctype html>
+<html xmlns:th="https://www:thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>shopping-mall-搜索</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- /*通过快捷方式打开是全屏显示*/  -->
+    <meta mame="apple-moblie-web-app-capable" content="yes">
+    <!---/*  隐藏状态栏*/  -->
+    <meta name="apple-moblie-web-app-status-bar-style" content="blank">
+    <!-- /*iphone会将看起来像电话号码的数字添加电话链接，这里关闭掉*/ -->
+    <meta mame="format-detection" content="telephone=no">
+    <!-- ico -->
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <!-- 侧边栏菜单 -->
+    <link rel="stylesheet" href="/static/css/menu/asidenav.css">
+    <!-- home -->
+    <link rel="stylesheet" href="/static/css/product.css">
+    <link rel="stylesheet" href="/static/css/home/home.css">
+    <link rel="stylesheet" href="/static/css/home/style.css">
+    <link rel="stylesheet" href="/static/css/home/main.css">
+    <!--product -->
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/search.css">
+    <!--jQuery -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.js"></script>
+    <script src="/static/js/search.js"></script>
+</head>
+<body>
+
+<!-- 进度条 -->
+<span class="loading"></span>
+<!-- 侧边菜单栏 -->
+<div th:replace="~{common/side-bar::#menu}"></div>
+<div class="container-fluid clear-padding" id="wrap">
+    <!-- 顶部栏 -->
+    <div th:replace="~{common/top-bar::header}"></div>
+    <!-- body -->
+    <div class="wrapper" id="wrapper">
+        <!-- 提示信息 -->
+        <div class="msgFiled" id="filed-message">
+            <i class="fa fa-times" aria-hidden="true"></i>
+            <span  name="error-message"></span>
+        </div>
+
+        <div class="wrapper-main">
+            <div class="search-title">
+                <h2 class="h2">为您找到<em class="color-red" id="kw"></em>相关的商品信息</h2>
+                <div class="search-total">找到约&nbsp;&nbsp;<em class="color-red" id="search-total">@Count</em>&nbsp;&nbsp;个结果</div>
+            </div>
+            <div class="search-result">
+
+            </div>
+        </div>
+        <div class="wrapper-side"></div>
+    </div>
+</div>
+    <!-- 底部栏 -->
+    <div th:replace="~{common/foot-bar::footer}"></div>
+</div>
+<script src="/static/js/common.js"></script>
+<script src="/static/js/menu/asidenav.js"></script>
+</body>
+</html>

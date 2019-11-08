@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www:thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>侧边菜单</title>
+</head>
+<body>
+
+
+<!--======= SIDE BAR =========-->
+<div id="menu" style="display: none">
+    <svg width="0" height="0">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"></feColorMatrix>
+                <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+            </filter>
+        </defs>
+    </svg>
+    <div class="aside-nav bounceInUp animated" id="aside-nav">
+        <label class="aside-menu" title="按住拖动"><i class="fa fa-lightbulb-o"></i></label>
+        <a href="/shopping-mall/home" title="返回首页" class="menu-item menu-first"><i class="fa fa-home" ></i></a>
+        <a  href="javascript:void(0)" id="back-top" title="返回顶部" class="menu-item menu-second"><i class="fa fa-rocket"></i></a>
+        <a href="/demo" title="查看演示" class="menu-item menu-third"><i class="fa fa-eye"></i></a>
+        <div th:if="${session.user != null}">
+           <a href="/shopping-mall/cart-product" title="购物车" class="menu-item menu-fourth"><i class="fa fa-shopping-cart"></i></a>
+        </div>
+        <div th:if="${session.user == null}">
+            <a href="javascript:void(0)" title="更多功能" class="menu-item menu-fourth"><i class="fa fa-ellipsis-h"></i></a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

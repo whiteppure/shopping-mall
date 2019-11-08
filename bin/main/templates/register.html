@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shopping-mall-Demo-注册</title>
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/register.css">
+    <script src="https://cdn.staticfile.org/jquery/1.11.3/jquery.min.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+    <span class="loading"></span>
+    <div class="container" >
+        <div class="col-md-6 col-md-offset-3">
+            <form  id="register">
+                <div class="form-group has-feedback">
+                    <label for="username">用户名</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                        <input id="username" class="form-control" placeholder="请输入用户名" maxlength="20" type="text">
+                    </div>
+                    <span style="color:red;display: none;" class="tips" name="usernameTips"></span>
+                    <span style="display: none;" class=" glyphicon glyphicon-remove form-control-feedback" name="usernameRemove"></span>
+                    <span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback" name="usernameOk"></span>
+                </div>
+
+                <div class="form-group has-feedback">
+                    <label for="password">密码</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                        <input id="password" class="form-control" placeholder="请输入密码" maxlength="20" type="password">
+                    </div>
+
+                    <span style="color:red;display: none;" class="tips" name="passwordTips"></span>
+                    <span style="display: none;" class="glyphicon glyphicon-remove form-control-feedback" name="passwordRemove"></span>
+                    <span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback" name="passwordOk"></span>
+                </div>
+
+                <div class="form-group has-feedback">
+                    <label for="passwordConfirm">确认密码</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock" ></span></span>
+                        <input id="passwordConfirm" class="form-control" placeholder="请再次输入密码" maxlength="20" type="password">
+                    </div>
+                    <span style="color:red;display: none;" class="tips" name="repasswordTips"></span>
+                    <span style="display: none;" class="glyphicon glyphicon-remove form-control-feedback" name="repasswordRemove"></span>
+                    <span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback" name="repasswordOk"></span>
+                </div>
+
+
+                <div class="form-group has-feedback">
+                    <label for="phoneNum">手机号码</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+                        <input id="phoneNum" class="form-control" placeholder="请输入手机号码" maxlength="11" type="text">
+                    </div>
+                    <span style="color:red;display: none;" class="tips" name="phoneNumTips"></span>
+                    <span style="display: none;" class="glyphicon glyphicon-remove form-control-feedback" name="phoneNumRemove"></span>
+                    <span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback" name="phoneNumOk"></span>
+                </div>
+
+                <div class="form-group has-feedback">
+                    <label for="email">邮箱</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                        <input id="email" class="form-control" placeholder="请输入邮箱" maxlength="20" type="text">
+                    </div>
+                    <span style="color:red;display: none;" class="tips" name="emailTips"></span>
+                    <span style="display: none;" class="glyphicon glyphicon-remove form-control-feedback" name="emailRemove"></span>
+                    <span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback" name="emailOk"></span>
+                </div>
+
+                <div class="form-group">
+                    <input  class="form-control btn btn-primary" id="submit" value="立&nbsp;&nbsp;即&nbsp;&nbsp;注&nbsp;&nbsp;册" type="submit">
+                </div>
+                <div class="form-group">
+                    <a  href="/login" class="form-control btn btn-success">已&nbsp;&nbsp;有&nbsp;&nbsp;账&nbsp;&nbsp;号</a>
+                </div>
+            </form>
+        </div>
+    </div>
+<script src="/static/js/register.js"></script>
+</body>
+</html>

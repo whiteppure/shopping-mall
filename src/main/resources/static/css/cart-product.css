@@ -1,0 +1,185 @@
+body{
+    font: 14px/1.5 arial,"Microsoft Yahei","Hiragino Sans GB",sans-serif;
+    min-width: 1380px;
+}
+.title{
+    font-size: 20px;
+    font-weight: 400;
+}
+button:focus{
+    outline: none;
+}
+button:hover {
+    color: #000000 !important;
+    border: 1px #000000 solid;
+}
+
+.product {
+    margin-top: 110px;
+    margin-bottom: 100px;
+}
+button{
+    border: 1px #000000 solid !important;
+}
+.checkout-count {
+    clear: both;
+    position: relative;
+    padding: 25px 8% 30px 0;
+    min-height: 160px;
+    height: 160px;
+    border-top: 1px solid #dfdfdf;
+    border-radius: 0 0 5px 5px;
+}
+.checkout-price {
+    float: right;
+    text-align: right;
+    color: #333;
+}
+.checkout-price ul {
+    margin-bottom: 20px;
+}
+.checkout-price li {
+    line-height: 2;
+    text-align: right;
+}
+.checkout-price li span {
+    display: inline-block;
+    min-width: 130px;
+    width: 150px;
+    color: #ff4646;
+}
+.checkout-confirm {
+    clear: both;
+    margin-top: 10px;
+    padding: 20px 9%;
+    background: #fafafa;
+    text-align: right;
+    color: #333;
+}
+.checkout-price .checkout-total span {
+    display: inline-block;
+    min-width: 130px;
+    width: 150px;
+    color: #ff4646;
+}
+
+/*地址信息*/
+.box-hd {
+    /*height: 50px;*/
+    border-bottom: 1px solid #dfdfdf;
+    padding-top: 6px;
+    margin-bottom: 20px;
+}
+.xm-address-list {
+    margin-left: -10px;
+}
+.xm-address-list .item {
+    float: left;
+    width: 264px;
+    height: 180px;
+    padding: 15px 18px;
+    position: relative;
+    border: 1px solid #dfdfdf;
+    margin: 0 0 10px 10px;
+    cursor: pointer;
+    /*background: #fafafa;*/
+}
+
+/*该class 只能用于选中收货地址  不要乱用 会出事情  */
+.border-1-black{
+    border: 1px solid black !important;
+    background-color: #fafafa;
+}
+
+.xm-address-list .item dt {
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #dfdfdf;
+    color: #333;
+}
+.xm-address-list .item dt strong {
+    float: left;
+    font-weight: 400;
+}
+.xm-address-list .item dt .tag {
+    float: right;
+    height: 18px;
+    line-height: 18px;
+    margin-top: 6px;
+    padding: 0 10px;
+    font-size: 12px;
+    background: #dfdfdf;
+}
+.xm-address-list .item dd {
+    margin: 0;
+    line-height: 1.6;
+    color: #6d6d6d;
+}
+.xm-address-list .item .edit-btn {
+    display: inline-block;
+    width: 60px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 8px;
+    text-align: center;
+    color: #333;
+    font-size: 12px;
+    cursor: pointer;
+    border: 1px solid #dfdfdf !important;
+}
+dd p{
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.cart-empty{
+    text-align: center;
+    margin-top: 90px;
+}
+.border-bottom{
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.customer-table-td{
+    padding: 20px !important;
+     vertical-align: center !important;
+}
+.padding-left-20{
+    padding-left: 20px !important;
+    border: none !important;
+}
+.padding-top-23{
+    padding-top: 25px;
+}
+.padding-bottom-24{
+    /*padding-bottom: 24px;*/
+}
+
+
+/**
+消息提示
+ */
+/*
+.message ,.msgFiled{
+    display: none;
+    position: fixed;
+    top: 120px;
+    left: 40%;
+    z-index: 99999;
+    width: 260px;
+    height: 40px;
+    background-color: #34ce57;
+    opacity: .9;
+    text-align: center;
+    line-height: 40px;
+    font-family:"微软雅黑","黑体","宋体";
+    !*font-size:16px;*!
+    font-weight: bold;
+    color: #ffffff;
+}
+.msgFiled{
+    display: none;
+    background-color: #dc3545;
+}
+*/

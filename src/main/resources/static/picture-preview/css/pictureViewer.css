@@ -1,0 +1,184 @@
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+/*demo CSS*/
+img{
+    max-width: 100%;
+    max-height: 100%;
+}
+.main-content{
+    width: 100%;
+}
+.image-list{
+    /*padding: 5px;*/
+    margin: 0 auto;
+}
+.image-list .cover{
+    position: relative;
+    width: 95px;
+    height: 70px;
+    display: inline-block;
+    margin-top: 3%;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.image-list .cover img{
+    border: 1px solid #fff;
+    position: absolute;
+    /*margin: auto;*/
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.image-list .cover img:hover{
+    border: 1px solid #1890ff;
+}
+
+/*main CSS*/
+#pictureViewer{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.3);
+    z-index: 10000;
+}
+#pictureViewer > .content{
+    background-color: #fff;
+    position: absolute;
+/*    width: 800px;
+    height: 800px;*/
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+#pictureViewer .menu-bar{
+    width: 100%;
+}
+#pictureViewer .menu-bar .handel{
+    width: 40px;
+    height: 40px;
+    float: right;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    cursor: pointer;
+}
+#pictureViewer .menu-bar .handel:hover{
+    background-color: #0f0f0f;
+
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+#pictureViewer .menu-bar .handel.maximization{
+    background-image: url(../images/icons/maximization_black.png);
+    background-size: 14px;
+}
+#pictureViewer .menu-bar .handel.maximization:hover{
+    background-image: url(../images/icons/maximization_white.png);
+}
+#pictureViewer .menu-bar .handel.miniaturization{
+    background-size: 16px;
+    background-image: url(../images/icons/miniaturization_black.png);
+}
+#pictureViewer .menu-bar .handel.miniaturization:hover{
+    background-image: url(../images/icons/miniaturization_white.png);
+}
+#pictureViewer .menu-bar .handel.close-view{
+    background-image: url(../images/icons/close_black.png);
+    background-size: 15px;
+}
+#pictureViewer .menu-bar .handel.close-view:hover{
+    background-image: url(../images/icons/close_white.png);
+}
+#pictureViewer .handel-prev,
+#pictureViewer .handel-next{
+    display: inline-block;
+    width: 50px;
+    height: 70px;
+    position: relative;
+    top: calc(50% - 80px);
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: 50%;
+    cursor: pointer;
+
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+#pictureViewer .handel-prev{
+    background-image: url(../images/icons/prev_blank.png);
+}
+#pictureViewer .handel-next{
+    background-image: url(../images/icons/next_blank.png);
+}
+#pictureViewer .handel-prev:hover,
+#pictureViewer .handel-next:hover{
+    background-color: #0f0f0f;
+}
+#pictureViewer .handel-prev:hover{
+    background-image: url(../images/icons/prev_white.png);
+}
+#pictureViewer .handel-next:hover{
+    background-image: url(../images/icons/next_white.png);
+}
+#pictureViewer .picture-content{
+    display: inline-block;
+    width: 80%;
+    height: calc(100% - 80px);
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+#pictureViewer .picture-content .cover{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+#pictureViewer .counter{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    text-align: center;
+    color: #808080;
+    font-size: 13px;
+}
+#pictureViewer .hide{
+    display: none;
+}
+#pictureViewer .left{
+    float: left;
+}
+#pictureViewer .right{
+    float: right;
+}
+#pictureViewer .clear-flex{
+    clear: both;
+}
+#pictureViewer img{
+    max-width: 100%;
+    max-height: 100%;
+}

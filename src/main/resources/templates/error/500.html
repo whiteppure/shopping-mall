@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>500</title>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="/static/css/error/404.css"
+		  th:href="@{/static/css/error/404.css}" />
+	<script src="/static/js/jquery.min.js"
+			th:src="@{/static/js/jquery.min.js}"></script>
+	<script src="/static/js/error/scriptalizer.js"
+			th:src="@{/static/js/error/scriptalizer.js}"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('#parallax').jparallax({});
+		});
+	</script>
+</head>
+<body>
+<div id="content" class="narrowcolumn">
+	<div id="parallax">
+		<div class="error1"
+			 style="position: absolute; left: 0%; margin-left: 0px; top: 35.7143%; margin-top: -248.214px;">
+			<img src="/static/image/error/500.jpg" alt="Mauer"
+				 th:src="@{/static/image/error/500.jpg}">
+		</div>
+		<div class="error2"
+			 style="position: absolute; left: 0%; margin-left: 0px; top: 35.7143%; margin-top: -223.214px;">
+			<img src="/static/image/error/licht.png" alt="Licht"
+				 th:src="@{/static/image/error/licht.png}">
+		</div>
+		<div class="error3"
+			 style="position: absolute; left: 0%; margin-left: 0px; top: 35.7143%; margin-top: -214.286px;">
+			<img src="/static/image/error/halo1.png" alt="Halo1"
+				 th:src="@{/static/image/error/halo1.png}">
+		</div>
+		<div class="error4"
+			 style="position: absolute; left: 0%; margin-left: 0px; top: 35.7143%; margin-top: -228.571px;">
+			<img src="/static/image/error/halo2.png"
+				 th:src="@{/static/image/error/halo2.png}" alt="Halo2">
+		</div>
+		<div class="error5"
+			 style="position: absolute; left: 0%; margin-left: 0px; top: 35.7143%; margin-top: -246.429px;">
+			<img src="/static/image/error/batman-404.png" alt="Batcave 404" th:src="@{/static/image/error/batman-404.png}" >
+		</div>
+	</div>
+	<div class="footer-banner" style="width: 728px; margin: 0 auto"></div>
+</div>
+</body>
+</html>

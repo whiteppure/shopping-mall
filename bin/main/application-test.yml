@@ -1,0 +1,59 @@
+spring:
+  #web
+  thymeleaf:
+    cache: false
+#  security:
+#    user:
+#      name: admin
+#      password: 123
+  mvc:
+    static-path-pattern: /static/**
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://cdb-58w35e0w.cd.tencentcdb.com:10070/shopping?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: lijizhi321
+    #druid 连接池
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      filters: stat,wall
+      use-global-data-source-stat: true
+      connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  #redis
+  redis:
+    database: 0
+    host: 49.235.206.214
+    port: 6379
+    timeout: 8000
+    password:
+    jedis:
+      pool:
+        #连接池最大连接数量
+        max-active: 10
+        #连接池最大堵塞时间
+        max-wait: -1
+        #连接池最小空闲连接
+        min-idle: 0
+        #连接池最大空闲连接
+        max-idle: 8
+  #logger
+logging:
+  level:
+    root: debug
+#  file: ${user.dir}/shopping-mall.log
+
+#mp
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml

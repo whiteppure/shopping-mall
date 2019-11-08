@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>shopping-mall-Demo-支付接口示例</title>
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-theme.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        tr,
+        th {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<div class="panel panel-heading">
+    <h2>支付宝接口示例</h2>
+</div>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th class="col-md-2 col-sm-2">商品名称</th>
+        <th class="col-md-2 col-sm-2">商品价格</th>
+        <th class="col-md-2 col-sm-2">商品图片</th>
+        <th class="col-md-2 col-sm-2">购买数量</th>
+        <th class="col-md-3 col-sm-3">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="col-md-2 col-sm-2">iphone</td>
+        <td class="col-md-2 col-sm-2">999</td>
+        <td class="col-md-2 col-sm-2"><img src="/static/image/product.png" style="width:70px; height: 40px;"></td>
+        <td class="col-md-2 col-sm-2">1</td>
+        <td class="col-md-2 col-sm-2">
+            <button type="button" class="btn btn-danger" aria-label="Left Align">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true">删除</span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td class="col-md-2 col-sm-2">iphone2</td>
+        <td class="col-md-2 col-sm-2">999</td>
+        <td class="col-md-2 col-sm-2"><img src="/static/image/product.png" style="width:70px; height: 40px;"></td>
+        <td class="col-md-2 col-sm-2">1</td>
+        <td class="col-md-2 col-sm-2">
+            <button type="button" class="btn btn-danger" aria-label="Left Align">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true">删除</span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td class="col-md-2 col-sm-2">iphone3</td>
+        <td class="col-md-2 col-sm-2">999</td>
+        <td class="col-md-2 col-sm-2"><img src="/static/image/product.png" style="width:70px; height: 40px;"></td>
+        <td class="col-md-2 col-sm-2">1</td>
+        <td class="col-md-2 col-sm-2">
+            <button type="button" class="btn btn-danger" aria-label="Left Align">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true">删除</span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td class="col-md-2 col-sm-2">iphone4</td>
+        <td class="col-md-2 col-sm-2">999</td>
+        <td class="col-md-2 col-sm-2"><img src="/static/image/product.png" style="width:70px; height: 40px;"></td>
+        <td class="col-md-2 col-sm-2">1</td>
+        <td class="col-md-2 col-sm-2">
+            <button type="button" class="btn btn-danger" aria-label="Left Align">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true">删除</span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td class="col-md-2 col-sm-2">iphone5</td>
+        <td class="col-md-2 col-sm-2">999</td>
+        <td class="col-md-2 col-sm-2"><img src="/static/image/product.png" style="width:70px; height: 40px;"></td>
+        <td class="col-md-2 col-sm-2">1</td>
+        <td class="col-md-2 col-sm-2">
+            <button type="button" class="btn btn-danger" aria-label="Left Align">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true">删除</span>
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<form action="/aliPay/pay" class="form-row" method="get">
+    <div class="panel panel-heading">
+        <h2>支付金额:<input id="money" name="money" type="text"  placeholder="￥" value="100.00" style= "width: 110px; margin-left: 30px;outline: none; background-color:transparent;border:0;" readonly>￥</h2></h2>
+        <input type="submit" value="支付订单" class="btn btn-primary form-control" />
+    </div>
+</form>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www:thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心-地址信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- /*通过快捷方式打开是全屏显示*/  -->
+    <meta mame="apple-moblie-web-app-capable" content="yes">
+    <!---/*  隐藏状态栏*/  -->
+    <meta name="apple-moblie-web-app-status-bar-style" content="blank">
+    <!-- /*iphone会将看起来像电话号码的数字添加电话链接，这里关闭掉*/ -->
+    <meta mame="format-detection" content="telephone=no">
+    <!-- ico -->
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+    <!-- bootstrap  -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <!-- home -->
+    <link rel="stylesheet" href="/static/css/home/style.css">
+    <!-- cart-product   -->
+    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/cart-product.css">
+    <link rel="stylesheet" href="/static/css/my-address.css">
+    <!-- jQuery -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- 提示信息 -->
+    <div class="message" th:if="${not #strings.isEmpty(message)}">
+        <i class="fa fa-check" aria-hidden="true"></i>
+        <span>[[${message}]]</span>
+    </div>
+    <div class="msgFiled"   th:if="${not #strings.isEmpty(msgFiled)}">
+        <i class="fa fa-times" aria-hidden="true"></i>
+        <span>[[${msgFiled}]]</span>
+    </div>
+    <div class="message" style="display: none">
+        <i class="fa fa-check" aria-hidden="true"></i>
+        <span name="message"></span>
+    </div>
+    <div class="msgFiled" style="display: none">
+        <i class="fa fa-times" aria-hidden="true"></i>
+        <span name="msgFiled"></span>
+    </div>
+    <div class="border_top_cart">
+        <div class="container">
+            <div class="checkout-box">
+                <div class="checkout-box-bd">
+                    <div class="xm-box" id="address">
+                        <input type="hidden" th:value="${session.user.id}" name="userId">
+                        <div class="box-hd ">
+                            <h2 class="title">添加地址</h2>
+                        </div>
+
+                        <div class="box-bd">
+                            <div class="clearfix xm-address-list">
+                                <div class="item use-new-addr" style="padding: 75px;" id="add-address" data-toggle="modal" data-target="#add-exampleModal">
+                                    <span class="iconfont icon-add"><img src="/static/image/add_cart.png"/></span> 添加新地址
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--======= 添加收货地址模态框 =======-->
+    <div class="modal fade" id="add-exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-left" id="add-exampleModalLabel">添加收货信息:</h4>
+                </div>
+                <form action="/address/addAddress" method="post">
+                    <div class="modal-body">
+                        <input type="hidden" th:value="${session.user.id}" name="userId">
+                        <div class="form-group">
+                            <label for="address-comment" class="control-label">地址标签:</label>
+                            <input class="form-control" name="addressTag" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="address-user-name" class="control-label">收货人:</label>
+                            <input type="text" class="form-control" name="userName" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label for="address-user-phone" class="control-label">联系电话:</label>
+                            <input class="form-control"name="phone" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="address-info" class="control-label">收货地址:</label>
+                            <input class="form-control" name="address" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="address-comment" class="control-label">收货备注:</label>
+                            <input class="form-control" name="comment" required="required"/>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn">保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--======= 添加收货地址模态框 =======-->
+
+    <!--======= 编辑收货地址模态框 =======-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-left" id="exampleModalLabel">编辑收货信息:</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="address-comment" class="control-label">地址标签:</label>
+                            <input class="form-control" id="address-tag" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="address-user-name" class="control-label">收货人:</label>
+                            <input type="text" class="form-control" id="address-user-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address-user-phone" class="control-label">联系电话:</label>
+                            <input class="form-control" id="address-user-phone" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="address-info" class="control-label">收货地址:</label>
+                            <input class="form-control" id="address-info" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="address-comment" class="control-label">收货备注:</label>
+                            <input class="form-control" id="address-comment" required/>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn" id="address-save">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--======= 编辑收货地址模态框 =======-->
+<script src="/static/js/my-address.js"></script>
+</body>
+</html>

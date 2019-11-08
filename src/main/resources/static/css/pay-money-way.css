@@ -1,0 +1,7 @@
+.pay-order{
+    border: 1px solid #ffffff;
+    color: #ffffff !important;
+}
+.pay-order:hover{
+    color: #000 !important;
+}

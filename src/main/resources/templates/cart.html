@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>shopping-mall-Demo-购物车示例</title>
+	<link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+	<link href="http://www.jq22.com/jquery/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+
+<body>
+<div class="ct-pageWrapper">
+	<main>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="widget">
+						<h2 class="widget-header">购物车</h2>
+						<div class="ct-cart"></div>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="row">
+						<div class="col-sm-4">
+							<div class="ct-product">
+								<div class="image"><img src="/static/image/product/product-01.jpg" alt=""></div>
+								<div class="inner">
+									<a href="#" class="btn btn-motive ct-product-button"><i class="fa fa-shopping-cart"></i></a>
+									<h2 class="ct-product-title">一盒杏仁饼</h2>
+									<p class="ct-product-description">一个非常美味的杏仁饼…</p><span class="ct-product-price">$19.99</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="ct-product">
+								<div class="image"><img src="/static/image/product/product-02.jpg" alt=""></div>
+								<div class="inner">
+									<a href="#" class="btn btn-motive ct-product-button"><i class="fa fa-shopping-cart"></i></a>
+									<h2 class="ct-product-title">樱桃杏仁饼</h2>
+									<p class="ct-product-description">一个非常美味的杏仁饼…</p><span class="ct-product-price">$34.99</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="ct-product">
+								<div class="image"><img src="/static/image/product/product-03.jpg" alt=""></div>
+								<div class="inner">
+									<a href="#" class="btn btn-motive ct-product-button"><i class="fa fa-shopping-cart"></i></a>
+									<h2 class="ct-product-title">咖啡杏仁饼</h2>
+									<p class="ct-product-description">一个非常美味的杏仁饼…</p><span class="ct-product-price">$59.99</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="ct-product">
+								<div class="image"><img src="/static/image/product/product-04.jpg" alt=""></div>
+								<div class="inner">
+									<a href="#" class="btn btn-motive ct-product-button"><i class="fa fa-shopping-cart"></i></a>
+									<h2 class="ct-product-title">杏仁饼</h2>
+									<p class="ct-product-description">一个非常美味的杏仁饼…</p><span class="ct-product-price">$9.99</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="ct-product">
+								<div class="image"><img src="/static/image/product/product-05.jpg" alt=""></div>
+								<div class="inner">
+									<a href="#" class="btn btn-motive ct-product-button"><i class="fa fa-shopping-cart"></i></a>
+									<h2 class="ct-product-title">原味杏仁饼</h2>
+									<p class="ct-product-description">一个非常美味的杏仁饼…</p><span class="ct-product-price">$3.99</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="ct-product">
+								<div class="image"><img src="/static/image/product/product-06.jpg" alt=""></div>
+								<div class="inner">
+									<a href="#" class="btn btn-motive ct-product-button"><i class="fa fa-shopping-cart"></i></a>
+									<h2 class="ct-product-title">抹茶杏仁饼</h2>
+									<p class="ct-product-description">一个非常美味的杏仁饼…</p><span class="ct-product-price">$13.99</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/shop.min.js"></script>
+	<script>
+		$('body').ctshop({
+			currency: '$',
+			paypal: {
+				currency_code: 'EUR'
+			}
+		});
+	</script>
+</div>
+<div style="text-align:center;margin:-50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+</div>
+</body>
+
+</html>

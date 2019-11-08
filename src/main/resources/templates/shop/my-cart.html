@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www:thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>shopping-mall-购物车商品-结算购物车</title>
+    <!-- ico -->
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+    <!-- bootstrap  -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <!-- home -->
+    <link rel="stylesheet" href="/static/css/home/home.css">
+    <link rel="stylesheet" href="/static/css/home/style.css">
+    <!--- font -->
+    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+    <!-- cart-product   -->
+    <link rel="stylesheet" href="/static/css/cart-product.css">
+    <!-- jQuery -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<span class="loading"></span>
+<div class="container-fluid clear-padding" id="wrap">
+    <input type="hidden" th:value="${session.user.id}" name="userId">
+    <div class="product" style="margin-top: 0px">
+        <div class="container" id="cart-empty">
+
+            <div class="box-hd ">
+                <h2 class="text-left title" id="user-cart">我的购物车</h2>
+            </div>
+            <table class="table table-hover ">
+                <thead>
+                <tr>
+                    <th class="padding-25">#</th>
+                    <th class="padding-25">商品名称</th>
+                    <th class="padding-25">商品价格</th>
+                    <th class="padding-25">商品图片</th>
+                    <th class="padding-25">购买描述</th>
+                    <th class="padding-25">购买数量</th>
+                    <th class="padding-25">操作</th>
+                </tr>
+                </thead>
+                <tbody id="product-table-body">
+
+                </tbody>
+            </table>
+
+            <div  id="order">
+                <!-- 用户地址信息 -->
+                <div class="checkout-box-bd" id="address">
+                    <div class="xm-box">
+
+                    </div>
+                </div>
+                <!-- 结算 -->
+                <div class="checkout-count">
+                    <div class="checkout-price">
+                        <ul>
+                            <li> 商品总额：<span id="price"></span>元</li>
+                            <li> 活动优惠：<span>-0</span>元</li>
+                            <li> 优惠券抵扣：<span id="couponDesc">-0</span>元</li>
+                            <p class="checkout-total">应付总额：<span id="totalPrice"></span>元</p>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="checkout-confirm">
+                    <form action="/aliPay/pay" method="get">
+                        <input type="hidden" value="" id="pay" name="money">
+                        <button  class="btn"  type="submit" id="pay-order" style="display: none">支付订单</button>
+                    </form>
+                    <button class="btn"  id="settleShoppingCart">结算购物车</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div th:replace="~{common/foot-bar::footer}"></div>
+</div>
+
+<!--======= 编辑收货地址模态框 =======-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-left" id="exampleModalLabel">收货信息:</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="address-comment" class="control-label">地址标签:</label>
+                        <input class="form-control" id="address-tag"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="address-user-name" class="control-label">收货人:</label>
+                        <input type="text" class="form-control" id="address-user-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="address-user-phone" class="control-label">联系电话:</label>
+                        <input class="form-control" id="address-user-phone"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="address-info" class="control-label">收货地址:</label>
+                        <input class="form-control" id="address-info"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="address-comment" class="control-label">收货备注:</label>
+                        <input class="form-control" id="address-comment"/>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn" id="address-save">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--======= 编辑收货地址模态框 =======-->
+
+<script src="/static/js/cart-product.js"></script>
+<script src="/static/js/my-home.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html xmlns:th="https://www:thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>shopping-mall-支付订单-选择支付方式</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- /*通过快捷方式打开是全屏显示*/  -->
+    <meta mame="apple-moblie-web-app-capable" content="yes">
+    <!---/*  隐藏状态栏*/  -->
+    <meta name="apple-moblie-web-app-status-bar-style" content="blank">
+    <!-- /*iphone会将看起来像电话号码的数字添加电话链接，这里关闭掉*/ -->
+    <meta mame="format-detection" content="telephone=no">
+    <!-- ico -->
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon"/>
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/buyConfirm.css"/>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <!-- home -->
+    <link rel="stylesheet" href="/static/css/product.css">
+    <link rel="stylesheet" href="/static/css/home/home.css">
+    <link rel="stylesheet" href="/static/css/home/style.css">
+    <link rel="stylesheet" href="/static/css/home/main.css">
+    <!--product -->
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/pay-money-way.css">
+    <!-- jQuery -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.js"></script>
+    <script src="/static/js/pay-way.js"></script>
+</head>
+<body>
+    <!-- 进度条 -->
+    <span class="loading"></span>
+    <div class="container-fluid clear-padding" id="wrap">
+        <!-- 顶部栏 -->
+        <div th:replace="~{common/top-bar::header}"></div>
+        <div class="container">
+        <!--订单提交body部分开始-->
+        <div class="border_top_cart" style="margin-top: 12%;">
+            <div class="container payment-con">
+                <div class="box-hd bank-title clearfix">
+                    <div class="title-wrap">
+                        <h2 class="title">订单信息</h2>
+                    </div>
+                </div>
+                <form>
+                    <div class="order-info">
+                        <div class="msg">
+                            <h3>您的订单已提交成功！付款咯～</h3>
+                            <p></p>
+
+                            <p class="post-date">成功付款后，我们会尽快发货</p>
+                        </div>
+                        <div class="info">
+                            <input type="hidden" th:value="${orderInfo.addressId}" name="addressId">
+                            <p>
+                                金额：<span class="pay-total" th:text="${orderInfo.orderPrice}">@orderPrice</span>
+                            </p>
+                            <p>
+                                订单：<span th:text="${orderInfo.orderNum}"> @orderNum</span></p>
+                            <p>
+                                配送：<span name="userName">@User</span>
+                                <span class="line">/</span>
+                                <span name="phone">@phone</span>
+                                <span class="line">/</span>
+                                <span name="address">@address</span>
+                                <span name="comment">@comment</span>
+                                <span class="line">/</span>
+                                不限送货时间
+                            </p>
+                        </div>
+                        <div class="icon-box">
+                            <i class="iconfont">
+                                <img src="/static/image/yes_ok.png" style="margin-top: -20px;">
+                            </i>
+                        </div>
+                    </div>
+
+                    <div class="xm-plain-box">
+                        <!-- 选择支付方式 -->
+                        <div class="box-hd bank-title clearfix">
+                            <div class="title-wrap">
+                                <h2 class="title">选择支付方式</h2>
+                            </div>
+                        </div>
+                        <div class="box-bd" id="bankList">
+                            <div class="payment-bd">
+                                <form name="ck">
+                                    <dl class="clearfix payment-box">
+                                        <dt>
+                                            <strong>支付平台</strong>
+                                            <p>手机等大额支付推荐使用支付宝快捷支付</p>
+                                        </dt>
+                                        <dd>
+                                            <fieldset id="test4-input-input_tab1-input_tab2" style=" border:none;">
+                                                <ul class="payment-list clearfix">
+                                                    <li>
+                                                        <input class="input_tab2" name="myradio" id="r2" type="radio" checked/>
+                                                        <label for="r2"><img src="/static/image/zfb.png" alt=""/></label>
+                                                    </li>
+                                                </ul>
+                                            </fieldset>
+                                        </dd>
+                                    </dl>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="box-ft clearfix">
+                            <a th:href="@{/aliPay/pay?money=}+${orderInfo.orderPrice}" class="btn pay-order">支付订单</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+        <!--订单提交body部分结束-->
+
+        <!-- 底部栏 -->
+        <div th:replace="~{common/foot-bar::footer}"></div>
+    </div>
+<script src="/static/js/common.js"></script>
+</body>
+
+</html>

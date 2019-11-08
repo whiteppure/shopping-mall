@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www:thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>头部导航栏</title>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+
+
+<!--========== HEADER   =====  -->
+<!-- 顶部栏 -->
+<header class="header" id="header">
+    <div class="row">
+        <div class="container clearfix col-lg-12  col-md-12 col-sm-12 col-xs-12" id="title">
+
+            <div class="nav">
+                <div class="row">
+                    <div class="fl right text-center col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                        <a href="/shopping-mall">
+                            <img src="/static/image/logo.png" class="img-responsive ">
+                        </a>
+                    </div>
+                    <ul class="navbar_nav col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-7 col-sm-7 col-xs-7">
+                                <li>
+                                    <a href="/shopping-mall/type/elect?typeId=3">
+                                        <i class="fa fa-tablet">电子商品类</i>
+                                    </a>
+                                </li>
+                                <li>
+
+                                    <a href="/shopping-mall/type/life?typeId=4">
+                                        <i class="fa fa-life-ring">生活用品类</i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/shopping-mall/type/book?typeId=1">
+                                        <i class="fa fa-book">
+                                            书籍类
+                                        </i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/shopping-mall/type/clothes?typeId=2">
+                                        <i class="fa fa-thumbs-o-up">服装类</i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-music"> 乐器类  </i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a  href="/shopping-mall/type/pet?typeId=5">
+                                        <i class="fa fa-linux"> 宠物类 </i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a  href="javascript:;">
+                                        其他
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="col-lg-6 col-md-5 col-sm-5 col-xs-5">
+                                <li>
+                                    <!--  搜索 框-->
+                                    <div class="news-letter padding-top-23 padding-bottom-24 search-input">
+                                        <div class="container-fluid width-adaption" style="padding-right: 25px">
+                                            <form id="search-form">
+                                                <input  style="outline: black" type="text" autocomplete="off" id="q" placeholder="请输入商品名称" required="required">
+                                                <button type="button"  id="search-product" style="line-height: 53px;font-size: 14px">搜索</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="dropdown">
+
+                                    <a  class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  th:if="${session.user}!=null" th:title="${session.user.userName}">
+                                        <img src="/static/image/person.png" class="my-account">
+                                        <input type="hidden" th:value="${session.user.id}" name="userId">
+                                        <input type="hidden" th:value="${session.user.userName}" name="userName">
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu" style="min-width: 100px; left:-90%; margin-top:-28px;" th:if="${session.user}!=null">
+                                        <li><a href="javascript:void(0);">消息<span class="badge">0</span></a></li>
+                                        <li><a href="/shopping-mall/cart-product">购物信息</a></li>
+                                        <li><a href="/shopping-mall/personal">我的店铺</a></li>
+                                        <li><a href="/loginOut">退出登录</a></li>
+                                    </ul>
+                                    <a class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  th:if="${session.user}==null">
+                                        <img src="/static/image/person.png" class="my-account">
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu" style="min-width: 100px; left:-90%; margin-top:-28px;"  th:if="${session.user}==null">
+                                        <li><a href="/shopping-mall/login">用户登录</a></li>
+                                        <li><a href="/shopping-mall/register">用户注册</a></li>
+                                    </ul>
+                                </li>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+</body>
+</html>

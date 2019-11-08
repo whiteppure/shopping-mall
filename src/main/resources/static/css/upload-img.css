@@ -1,0 +1,76 @@
+.imageDiv {
+    display:inline-block;
+    width:100px;
+    height:100px;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    /*background:#f8f8f8;*/
+    position:relative;
+    overflow:hidden;
+    border-radius: 5px;
+    margin: 10px;
+}
+.cover {
+    position:absolute;
+    z-index:1;
+    top:0;
+    left:0;
+    width:100px;
+    height:100px;
+    background-color:rgba(0,0,0,.3);
+    display:none;
+    line-height:100px;
+    text-align:center;
+    cursor:pointer;
+    font-style: normal;
+}
+.cover .delbtn {
+    color:#007bff;
+    font-size:16px;
+}
+.imageDiv:hover .cover {
+    display:block;
+}
+.addImages {
+    display:inline-block;
+    width: 100px;
+    height: 100px;
+    -webkit-box-sizing:border-box;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    border:1px dashed darkgray;
+    /*background:#f8f8f8;*/
+    position:relative;
+    overflow:hidden;
+    -webkit-transition: border-color .2s ease;
+    transition: border-color .2s ease;
+    margin: 10px;
+}
+.addImages:hover{
+    border: 1px dashed #2d8cf0;
+}
+.text-detail {
+    margin-top:40px;
+    text-align:center;
+}
+.text-detail span {
+    font-size:40px;
+}
+.file {
+    cursor: pointer;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100px;
+    height:100px;
+    opacity:0;
+}
+
+.form-group label{
+    font-size: 12px;
+    color: #515a6e;
+}

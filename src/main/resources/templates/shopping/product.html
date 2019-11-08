@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www:thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- /*通过快捷方式打开是全屏显示*/  -->
+    <meta mame="apple-moblie-web-app-capable" content="yes">
+    <!---/*  隐藏状态栏*/  -->
+    <meta name="apple-moblie-web-app-status-bar-style" content="blank">
+    <!-- /*iphone会将看起来像电话号码的数字添加电话链接，这里关闭掉*/ -->
+    <meta mame="format-detection" content="telephone=no">
+    <title>shopping-mall-商品详情</title>
+    <!-- pic view -->
+    <link href="/static/picture-preview/css/pictureViewer.css" rel="stylesheet">
+    <!-- ico -->
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <!-- 侧边栏菜单 -->
+    <link rel="stylesheet" href="/static/css/menu/asidenav.css">
+    <!-- home -->
+    <link rel="stylesheet" href="/static/css/home/home.css">
+    <link rel="stylesheet" href="/static/css/home/style.css">
+    <link rel="stylesheet" href="/static/css/home/main.css">
+    <!-- font -->
+    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+    <!-- product -->
+    <link rel="stylesheet" href="/static/css/product.css">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.js"></script>
+    <script src="/static/js/product1.js"></script>
+</head>
+<body>
+<!-- 进度条 -->
+<span class="loading"></span>
+<!-- 侧边菜单栏 -->
+<div th:replace="~{common/side-bar::#menu}"></div>
+<div class="container-fluid clear-padding" id="wrap">
+    <!-- 提示信息 -->
+    <div class="msgFiled" id="filed-message">
+        <i class="fa fa-times" aria-hidden="true"></i>
+        <span name="error-message"></span>
+    </div>
+    <!-- 顶部栏 -->
+    <div th:replace="~{common/top-bar::#header}"></div>
+    <div class="container container-width">
+        <!-- 商品信息 -->
+        <div class="row header-title">
+            <div class="message">
+                <i class="fa fa-check" aria-hidden="true"></i>
+                <span  name="message"></span>
+            </div>
+            <div class="msgFiled" id="msgFiled">
+                <i class="fa fa-times" aria-hidden="true"></i>
+                <span  name="msgFiled"></span>
+            </div>
+            <div class="panel panel-heading">
+                <h2>商品名片</h2>
+            </div>
+        </div>
+
+        <!-- 上一个商品, 下一个商品 -->
+        <div class="pre-goods">
+            <div class="pre-next-mark" id="pre-goods">
+                <i class="fa fa fa-angle-left fa-2x" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="next-goods" >
+            <div class="pre-next-mark" id="next-goods">
+                <i class="fa fa-angle-right fa-2x" aria-hidden="true"></i>
+            </div>
+        </div>
+
+        <!-- 商品信息展示 -->
+        <div class="content clearfix" id="goods_content">
+            <!-- 加载效果 -->
+            <div class="spinner" id="spinner_goods_content">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        </div>
+
+        <!-- 推荐商品-->
+        <div class="row margin-top-50">
+            <div class="panel panel-heading">
+                <h2 class="inline-block">推荐商品</h2>
+                <!-- 商品翻页 -->
+                <div class="page">
+                    <button class="btn-goods " id="goods-left">
+                        <i class="fa fa-angle-left fa-2x" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn-goods" id="goods-right">
+                        <i class="fa fa-angle-right fa-2x" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 加载效果 -->
+        <div class="spinner" id="spinner_recommend_goods">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+        <!-- 推荐商品展示  -->
+        <div class="row" id="recommend-goods"></div>
+        <!--  商品 二维码 -->
+        <div class="row margin-top-50">
+            <div class="panel panel-heading">
+                <h2>商品二维码</h2>
+            </div>
+        </div>
+        <div class="stamp" id="goods_code">
+            <!-- 加载效果 -->
+            <div class="spinner" id="spinner_goods_code">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        </div>
+        <!-- 用户评价 -->
+        <div class="row margin-top-50">
+            <div class="panel panel-heading">
+                <h2>用户评价</h2>
+            </div>
+        </div>
+        <div class="row" id="comment-area">
+
+        </div>
+        <!-- 遍历用户评价信息  -->
+        <div class="row user-comment-info"></div>
+        <div  class="comment-list">
+
+        </div>
+    </div>
+    <!-- 底部栏 -->
+    <div th:replace="~{common/foot-bar::#footer}"></div>
+</div>
+<!-- 商品图片预览插件 -->
+<script src="/static/picture-preview/js/jquery.mousewheel.min.js"></script>
+<script src="/static/picture-preview/js/pictureViewer.js"></script>
+<script src="/static/js/menu/asidenav.js"></script>
+<script src="/static/js/common.js"></script>
+<script src="/static/js/product.js"></script>
+</body>
+</html>

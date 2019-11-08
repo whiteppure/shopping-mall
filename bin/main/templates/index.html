@@ -1,0 +1,244 @@
+<!doctype html>
+<html xmlns:th="https://www:thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- /*通过快捷方式打开是全屏显示*/  -->
+	<meta mame="apple-moblie-web-app-capable" content="yes">
+	<!---/*  隐藏状态栏*/  -->
+	<meta name="apple-moblie-web-app-status-bar-style" content="blank">
+	<!-- /*iphone会将看起来像电话号码的数字添加电话链接，这里关闭掉*/ -->
+	<meta mame="format-detection" content="telephone=no">
+
+	<title>shopping-mall-Demo</title>
+	<link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="/static/css/index.css" />
+	<script src="/static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/js/index.js" ></script>
+	<script src="/static/js/jquery.snow.min.js"></script>
+</head>
+<body>
+<!-- 换肤 start   -->
+<div class="bg-list">
+	<ul class="img-wrap">
+		<li class="img-item" data-src="/static/image/skin/6.jpg">
+			<img src="/static/image/skin/6-6.jpg" width="160px"/>
+		</li>
+		<li class="img-item"data-src="/static/image/skin/7.jpg">
+			<img src="/static/image/skin/7-7.jpg" width="160px"/>
+		</li>
+		<li class="img-item"data-src="/static/image/skin/8.jpg">
+			<img src="/static/image/skin/8-8.jpg" width="160px"/>
+		</li>
+		<li class="img-item"data-src="/static/image/skin/9.jpg">
+			<img src="/static/image/skin/9-9.jpg" width="160px"/>
+		</li>
+		<li class="img-item"data-src="/static/image/skin/12.jpg">
+			<img src="/static/image/skin/12-12.jpg" width="160px"/>
+		</li>
+		<li class="img-item"data-src="/static/image/skin/13.jpg">
+			<img src="/static/image/skin/13-13.jpg" width="160px"/>
+		</li>
+	</ul>
+</div>
+<div class="tab-btn" title="点我换肤哦!"></div>
+<!-- 换肤 end -->
+<!-- 进度条 -->
+<span class="loading"></span>
+<script>
+
+</script>
+<header class="header">
+	<div class="container clearfix">
+		<div class="fr nav">
+			<ul class="navbar_nav">
+				<li class="active" >
+					<a href="/shopping-mall/home">首页</a>
+				</li>
+				<li class="dropdown">
+					<a href="http://49.235.206.214/">
+						后台管理
+					</a>
+				</li>
+				<li class="dropdown">
+					<a href="http://note.youdao.com/noteshare?id=cb85171311c50a56dfee72901e6d5c77&sub=6359E8B6E6644B508040AA70ECF63929" target="_blank">README</a>
+				</li>
+				<li>
+					<a href="/swagger-ui.html" target="_blank">API-UI</a>
+				</li>
+				<li>
+					<a href="http://note.youdao.com/noteshare?id=f185e367693d6a0d4acc195807d10da5&sub=1DE3A4ECC002434DB200CAAC687D4571" target="_blank">了解更多</a>
+				</li>
+				<li>
+					<a href="/register" target="_blank">加入我们</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<section class="section-wrap">
+		<div class="section section-1">
+			<div class="title active">
+				<p class="tit">
+					<a href="/loginOut">
+						<img src="/static/image/login.png" class="login-img img-re" title="登录接口示例">
+					</a>
+				</p>
+			</div>
+			<div class=" jumbotron text-title">
+				<h1>Login Example</h1>
+				<p>
+					If you're not logged in, you can't access any<br>
+					interfaces.This web page comes with the spring  <br>
+					security framework.No matter what page you log <br>
+					on to,it will be blocked. The default user name <br>
+					of the login page is admin and the password is 123.
+				</p>
+				<p>
+					<a class="btn btn-primary btn-lg" href="/loginOut" role="button">Learn more</a>
+				</p>
+			</div>
+		</div>
+		<div class="section section-2">
+			<div class="title">
+				<p class="tit">
+					<a href="/demo/cart" target="_blank" title="购物车接口示例">
+						<img src="/static/image/cart.png" class="cart-img">
+					</a>
+				</p>
+			</div>
+			<div class=" jumbotron text-title">
+				<h1>Cart Example</h1>
+				<p>
+					This is an example of a shopping cart interface,<br>
+					If you can't access the interface without login,<br>
+					you can add the receiving address.<br>
+					which can add goods to the shopping cart,support<br>
+					emptying the shopping cart, automatically calculate<br>
+					the amount of money to support the increase<br>
+					in the number of goods, automatically calculate<br>
+					the amount of goods.</p>
+				<p><a target="_blank" class="btn btn-primary btn-lg" href="/demo/cart" role="button">Learn more</a></p>
+			</div>
+		</div>
+		<div class="section section-3">
+			<div class="title">
+				<p class="tit" >
+					<a href="/demo/order" target="_blank" title="订单接口示例">
+						<img src="/static/image/order.png" class="order-img">
+					</a>
+				</p>
+			</div>
+			<div class=" jumbotron text-title">
+				<h1>Order Example</h1>
+				<p>This is an example of an order interface. If you<br>
+					can't access the interface without login, you <br>
+					can add the receiving address, modify the receiving<br>
+					address and use the function of submitting an order.<br>
+					These functions are not connected to the database.
+				</p>
+				<p><a target="_blank" class="btn btn-primary btn-lg" href="/demo/order" role="button">Learn more</a></p>
+			</div>
+		</div>
+		<div class="section section-4">
+			<div class="title">
+				<p class="tit">
+					<a href="/demo/pay" target="_blank" title="支付宝接口示例">
+						<img src="/static/image/pay.png"  class="cart-img">
+					</a>
+				</p>
+			</div>
+			<div class=" jumbotron text-title">
+				<h1>AliPay Example</h1>
+				<p>
+					If you are not logged in, you have no access to<br>
+					this interface. The main function of this interface<br>
+					is to connect the third party interface - Alipay<br>
+					interface. The test environment is a sandbox<br>
+					environment.The account number is ipefol6178<br>
+					@sandbox.com, and the password is 111111.
+				</p>
+				<p><a target="_blank" class="btn btn-primary btn-lg" href="/demo/pay" role="button">Learn more</a></p>
+			</div>
+		</div>
+		<div class="section section-5">
+			<div class="title" id="title">
+				<p class="tit">
+					<a href="http://49.235.206.214/" target="_blank" title="后台管理接口示例">
+						<img src="/static/image/shopping-admin.png" class="cart-img">
+					</a>
+				</p>
+			</div>
+			<div class=" jumbotron text-title">
+				<h1>Admin Examples</h1>
+				<p>
+					This is a background management system Demo,<br>
+					which manages commodity information, user <br>
+					information, and order information. It supports<br>
+					the function of adding commodity to generate <br>
+					two-dimensional code. The default user name of <br>
+					the system is admin, and the password is 123.
+
+				</p>
+				<p><a target="_blank" class="btn btn-primary btn-lg" href="http://49.235.206.214/" role="button">Learn more</a></p>
+			</div>
+		</div>
+		<div class="section section-6">
+			<div class="title">
+				<p class="tit">
+					<a href="/swagger-ui.html" target="_blank" title="API-UI">
+						<img src="/static/image/api-ui.png" class="api-img">
+					</a>
+				</p>
+			</div>
+			<div class=" jumbotron text-title">
+				<h1>API-UI</h1>
+				<p>This is the interface document generated<br>
+					by the background system interface. It <br>
+					contains about 32 modules and about 100 <br>
+					interface examples. Most of the data returned<br>
+					is in JSON format
+				</p>
+				<p><a target="_blank" class="btn btn-primary btn-lg" href="/swagger-ui.html" role="button">Learn more</a></p>
+			</div>
+		</div>
+		<div class="section section-7">
+			<div class="title">
+				<p class="tit">
+					<a href="/druid/index.html" target="_blank" title="Druid-Monitor">
+						<img src="/static/image/druid-monitor.png" class="cart-img">
+					</a>
+				</p>
+			</div>
+			<div class=" jumbotron text-title">
+				<h1>Druid-Monitor</h1>
+				<p>
+					Druid is first and foremost a database connection<br>
+					pool. Druid is the best database connection pool<br>
+					at present. It surpasses other database connection<br>
+					pools in terms of function, performance and<br>
+					scalability, including DBCP, C3P0, BoneCP, Proxool<br>
+					and JBoss Data Source.Druid has deployed more <br>
+					than 600 applications in AliBaBa, after more than <br>
+					a year of rigorous deployment of large-scale <br>
+					production environment.The username is user <br>
+					password 123.
+				</p>
+				<p><a target="_blank" class="btn btn-primary btn-lg" href="/druid/index.html" role="button">Learn more</a></p>
+			</div>
+		</div>
+	</section>
+	<ul class="section-btn">
+	  <li class="on"></li>
+	  <li></li>
+	  <li></li>
+	  <li></li>
+	  <li></li>
+	  <li></li>
+	  <li></li>
+	</ul>
+	<div class="arrow">&laquo;</div>
+<script src="/static/js/index-ajax.js"></script>
+</body>
+</html>

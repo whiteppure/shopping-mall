@@ -1,0 +1,151 @@
+<!doctype html>
+<html xmlns:th="https://www:thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>shopping-mall-购买商品-支付订单</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- /*通过快捷方式打开是全屏显示*/  -->
+    <meta mame="apple-moblie-web-app-capable" content="yes">
+    <!---/*  隐藏状态栏*/  -->
+    <meta name="apple-moblie-web-app-status-bar-style" content="blank">
+    <!-- /*iphone会将看起来像电话号码的数字添加电话链接，这里关闭掉*/ -->
+    <meta mame="format-detection" content="telephone=no">
+    <!-- ico -->
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+    <!-- bootstrap  -->
+    <link rel="stylesheet" href="/static/css/product.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <!-- home -->
+    <link rel="stylesheet" href="/static/css/home/home.css">
+    <link rel="stylesheet" href="/static/css/home/style.css">
+    <link rel="stylesheet" href="/static/css/home/main.css">
+    <!--- font -->
+    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+    <!-- cart-product   -->
+    <link rel="stylesheet" href="/static/css/cart-product.css">
+    <!-- jQuery -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/js/pay-order.js"></script>
+</head>
+<body>
+    <span class="loading"></span>
+    <div class="container-fluid clear-padding" id="wrap">
+        <!-- 顶部栏 -->
+        <div th:replace="~{common/top-bar::header}"></div>
+
+        <!-- 订单列表 -->
+        <div class="product">
+            <div class="container">
+                <div class="box-hd ">
+                    <h2 class="text-left title" id="user-cart">订单详情</h2>
+                </div>
+                <!-- 加载效果 -->
+                <div class="spinner">
+                    <div class="rect1"></div>
+                    <div class="rect2"></div>
+                    <div class="rect3"></div>
+                    <div class="rect4"></div>
+                    <div class="rect5"></div>
+                </div>
+                <!-- 消息提示信息 -->
+                <div class="message">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    <span th:text="${msg}" name="message"></span>
+                </div>
+                <div class="msgFiled"  id="msgFiled">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    <span th:text="${msgFiled}" name="msgFiled"></span>
+                </div>
+                <table class="table table-hover " style="display: none;">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>名称</th>
+                        <th>单价(￥)</th>
+                        <th>商品图片</th>
+                        <th>数量</th>
+                    </tr>
+                    </thead>
+                    <tbody id="product-table-body">
+                    </tbody>
+                </table>
+
+
+                <!-- 用户地址信息 -->
+                <div class="checkout-box-bd" id="address">
+                    <div class="xm-box">
+
+                    </div>
+                </div>
+
+                <!-- 支付订单 -->
+                <div class="checkout-count" style="display: none">
+                    <div class="checkout-price">
+                        <ul>
+                            <li> 商品总额：<span id="price"></span>元</li>
+                            <li> 活动优惠：<span>-0</span>元</li>
+                            <li> 优惠券抵扣：<span id="couponDesc">-0</span>元</li>
+                            <p class="checkout-total">应付总额：<span id="totalPrice"></span>元
+                            </p>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="checkout-confirm" style="display: none">
+                    <input type="hidden"  id="pay" name="money">
+                    <button  class="btn"  id="pay-order">提交订单</button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 底部栏 -->
+        <div th:replace="~{common/foot-bar::footer}"></div>
+    </div>
+
+    <!--======= 编辑收货地址模态框 =======-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-left" id="exampleModalLabel">收货信息:</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="address-comment" class="control-label">地址标签:</label>
+                            <input class="form-control" id="address-tag"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="address-user-name" class="control-label">收货人:</label>
+                            <input type="text" class="form-control" id="address-user-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="address-user-phone" class="control-label">联系电话:</label>
+                            <input class="form-control" id="address-user-phone"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="address-info" class="control-label">收货地址:</label>
+                            <input class="form-control" id="address-info"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="address-comment" class="control-label">收货备注:</label>
+                            <input class="form-control" id="address-comment"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn" id="address-save">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--======= 编辑收货地址模态框 =======-->
+
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/pay.js"></script>
+</body>
+</html>

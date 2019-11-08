@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www:thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>shopping-mall-类型-电子商品类型</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- /*通过快捷方式打开是全屏显示*/  -->
+    <meta mame="apple-moblie-web-app-capable" content="yes">
+    <!---/*  隐藏状态栏*/  -->
+    <meta name="apple-moblie-web-app-status-bar-style" content="blank">
+    <!-- /*iphone会将看起来像电话号码的数字添加电话链接，这里关闭掉*/ -->
+    <meta mame="format-detection" content="telephone=no">
+    <!-- ico -->
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon"/>
+    <!-- 侧边栏菜单 -->
+    <link rel="stylesheet" href="/static/css/menu/asidenav.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <!-- home -->
+    <link rel="stylesheet" href="/static/css/product.css">
+    <link rel="stylesheet" href="/static/css/home/home.css">
+    <link rel="stylesheet" href="/static/css/home/style.css">
+    <link rel="stylesheet" href="/static/css/home/main.css">
+    <!--product -->
+    <link rel="stylesheet" href="/static/css/search.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+    <!-- bootstrap -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.js"></script>
+</head>
+<body>
+<span class="loading"></span>
+<!-- 侧边菜单栏 -->
+<div th:replace="~{common/side-bar::#menu}"></div>
+<div class="container-fluid clear-padding" id="wrap">
+    <!-- 提示信息 -->
+    <div class="msgFiled" id="filed-message">
+        <i class="fa fa-times" aria-hidden="true"></i>
+        <span name="error-message"></span>
+    </div>
+    <!-- 顶部栏 -->
+    <div th:replace="~{common/top-bar::header}"></div>
+
+    <!--商品信息 -->
+    <div class="product">
+        <div class="ct-pageWrapper" id="product-wrapper">
+            <main>
+                <div class="container" style="width: 1200px;">
+                    <div class="row">
+                        <!-- 商品示例 -->
+                        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                            <!-- 商品类型展示 -->
+                            <div class="row">
+                                <!-- 追加商品 ...-->
+                                <div class="row margin-top-70">
+                                    <div class="search-title">
+                                        <h2 class="h2">电子商品类</h2>
+                                        <div class="search-total">找到约&nbsp;&nbsp;<em class="color-red"
+                                                                                     id="search-total"></em>&nbsp;&nbsp;个商品
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- 加载效果 -->
+                                    <div class="spinner">
+                                        <div class="rect1"></div>
+                                        <div class="rect2"></div>
+                                        <div class="rect3"></div>
+                                        <div class="rect4"></div>
+                                        <div class="rect5"></div>
+                                    </div>
+                                </div>
+                                <div class="row" id="goods"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 猜你喜欢-->
+                    <div class="row">
+                        <div class="panel panel-heading">
+                            <h2 style="display: inline-block">猜你喜欢</h2>
+                            <!-- 商品刷新 -->
+                            <div class="page">
+                                <div class="switch">
+                                    <button class="btn-goods" id="goods-switch">
+                                        <i class="fa fa-refresh" aria-hidden="true">&nbsp;换一换</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 加载效果 -->
+                    <div class="spinner">
+                        <div class="rect1"></div>
+                        <div class="rect2"></div>
+                        <div class="rect3"></div>
+                        <div class="rect4"></div>
+                        <div class="rect5"></div>
+                    </div>
+                    <!-- 追加商品信息 -->
+                    <div class="row" id="recommend-goods" style="display: none"></div>
+
+                </div>
+            </main>
+
+        </div>
+    </div>
+    <!-- 底部栏 -->
+    <div th:replace="~{common/foot-bar::footer}"></div>
+</div>
+<script src="/static/js/lazyload.js"></script>
+<script src="/static/js/menu/asidenav.js"></script>
+<script src="/static/js/common.js"></script>
+<script src="/static/js/type-goods.js"></script>
+</body>
+</html>

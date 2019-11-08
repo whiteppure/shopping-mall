@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www:thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心-订单信息</title>
+    <!-- ico -->
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/static/css/home/main.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/home/home.css">
+
+    <!-- jquery -->
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="panel panel-heading">
+            <h2>我的订单</h2>
+        </div>
+        <div class="container-fluid" id="order-search">
+            <div class="row">
+                <form>
+                    <input type="text" autocomplete="off" name="orderNum" placeholder="请输入订单编号" required="">
+                    <input  type="button" id="search-product" value="搜索">
+                </form>
+            </div>
+        </div>
+
+
+        <!-- ===========搜索结果 ===========-->
+        <table class="table table-hover " id="search-table" style="display: none">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>订单编号</th>
+                <th>订单总价</th>
+                <th>订单状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody id="search-table-body">
+
+            </tbody>
+        </table>
+        <!-- ===========搜索结果 ===========-->
+
+        <input type="hidden" th:value="${session.user.id}" name="userId">
+        <table class="table table-hover " id="my-table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>订单编号</th>
+                <th>订单总价</th>
+                <th>订单状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody id="order-table-body">
+
+            </tbody>
+        </table>
+    </div>
+    <script src="/static/js/order-info.js"></script>
+</body>
+</html>

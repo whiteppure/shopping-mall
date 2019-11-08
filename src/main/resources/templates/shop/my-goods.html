@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www:thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心-商品信息</title>
+    <!-- ico -->
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/static/css/home/main.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/home/home.css">
+    <!-- jQuery -->
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="panel panel-heading">
+            <h2>我的商品</h2>
+        </div>
+        <div class="container-fluid" id="product-search">
+            <div class="row">
+                <form>
+                    <input type="text" autocomplete="off" name="productName" placeholder="请输入商品名称" required="">
+                    <input  type="button" id="search-product" value="搜索">
+                </form>
+            </div>
+        </div>
+        <!-- ===========搜索结果 ===========-->
+        <table class="table table-hover " id="search-table" style="display: none">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>商品名称</th>
+                <th>商品图片</th>
+                <th>商品价格</th>
+                <th>二维码</th>
+                <th>商品库存</th>
+                <th>商品描述</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody id="search-table-body">
+
+            </tbody>
+        </table>
+        <!-- ===========搜索结果 ===========-->
+        <input type="hidden" th:value="${session.user.shopId}" name="shopId">
+        <table class="table table-hover " id="my-table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>商品名称</th>
+                <th>商品图片</th>
+                <th>商品价格</th>
+                <th>二维码</th>
+                <th>商品库存</th>
+                <th>商品描述</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody id="product-table-body">
+
+            </tbody>
+        </table>
+    </div>
+<script src="/static/js/my-goods.js"></script>
+</body>
+</html>

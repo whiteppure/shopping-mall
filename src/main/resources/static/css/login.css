@@ -1,0 +1,416 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(245, 245, 245, .9);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/*进度条*/
+.loading {
+    background: #007bff;
+    height: 3px;
+    position: fixed;
+    top: 0;
+    z-index: 99999;
+}
+
+.clear-padding {
+    padding: 0;
+}
+
+.container-wrapper {
+    background: #fff;
+    position: absolute;
+    border-radius: 5px;
+    top: 40%;
+    left: 50%;
+    margin: -160px 0 0 -160px;
+    width: 320px;
+    padding: 18px 28px 28px 28px;
+    -webkit-box-shadow: -4px 7px 46px 2px rgba(0, 0, 0, .1);
+    box-shadow: -4px 7px 46px 2px rgba(0, 0, 0, .1);
+}
+
+/**
+logo
+ */
+.container-wrapper .shopping-mall-logo span {
+    vertical-align: text-bottom;
+    font-size: 38px;
+    display: inline-block;
+    font-weight: 600;
+    color: #1790fe;
+    background-image: linear-gradient(-20deg, #6e45e2, #88d3ce);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+}
+
+.container-wrapper .shopping-mall-logo {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.ant-form .ant-form-item {
+    padding-bottom: 0 !important;
+    margin-bottom: 20px;
+}
+
+.ant-row {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    height: auto;
+    zoom: 1;
+    display: block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.ant-form-item {
+    font-family: Chinese Quote, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, .65);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 24px;
+    vertical-align: top;
+}
+
+
+.ant-form {
+    font-family: Chinese Quote, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, .65);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/*表单*/
+.ant-form {
+    font-family: Chinese Quote, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, .65);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ant-form-vertical .ant-form-item-control {
+    line-height: 1.5;
+}
+
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+}
+
+/*输入框*/
+.ant-input-affix-wrapper .ant-input:not(:first-child) {
+    padding-left: 30px;
+}
+
+.ant-input-affix-wrapper .ant-input {
+    min-height: 100%;
+}
+
+.ant-input-affix-wrapper .ant-input {
+    position: relative;
+}
+
+.ant-input {
+    font-family: Chinese Quote, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    font-variant: tabular-nums;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    display: inline-block;
+    padding: 4px 11px;
+    width: 100%;
+    height: 32px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, .65);
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+.anticon {
+    display: inline-block;
+    font-style: normal;
+    vertical-align: -.125em;
+    text-align: center;
+    text-transform: none;
+    line-height: 0;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.ant-input-affix-wrapper .ant-input-prefix {
+    left: 12px;
+}
+
+.ant-input-affix-wrapper .ant-input-prefix, .ant-input-affix-wrapper .ant-input-suffix {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    line-height: 0;
+    color: rgba(0, 0, 0, .65);
+}
+
+.ant-input-affix-wrapper {
+    font-family: Chinese Quote, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, .65);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+/**
+登录按钮
+ */
+.ant-form-item-children {
+    position: relative;
+}
+
+.tips {
+    color: red;
+    display: none;
+    font-size: 10px;
+}
+
+.ant-btn-primary {
+    color: #fff;
+    background-color: #1890ff;
+    border-color: #1890ff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .12);
+    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, .045);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, .045);
+}
+
+.ant-form-item-control:after {
+    clear: both;
+}
+
+.ant-form-item-control:after, .ant-form-item-control:before {
+    content: "";
+    display: table;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #1890ff;
+    cursor: pointer;
+}
+
+.ant-btn, .ant-btn:active, .ant-btn:focus {
+    outline: 0;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button, input {
+    overflow: visible;
+}
+
+.ant-btn {
+    line-height: 1.499;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 0 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    height: 32px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    position: relative;
+    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, .015);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, .015);
+    color: rgba(0, 0, 0, .65);
+    background-color: #fff;
+    border-color: #d9d9d9;
+}
+
+.animation-delay {
+    animation-delay: 0.2s
+}
+
+.ant-btn-block {
+    width: 100%;
+    /*background: #1890ff;*/
+    background-image: linear-gradient(-90deg, #29bdd9 0%, #276ace 100%);
+    color: #ffffff;
+}
+
+
+.ant-btn-primary:focus, .ant-btn-primary:hover {
+    color: #fff;
+    background-image: linear-gradient(160deg, #3C8CE7 20%, #00EAFF 80%);
+    /* background-color: #40a9ff;
+     border-color: #40a9ff;*/
+
+}
+
+/*
+右下角登录
+*/
+.ant-row {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    height: auto;
+    zoom: 1;
+    display: block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.ant-row:after {
+    clear: both;
+}
+
+.ant-row:after, .ant-row:before {
+    content: "";
+    display: table;
+}
+
+a {
+    color: #1890ff;
+    background-color: transparent;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    -webkit-transition: color .3s;
+    transition: color .3s;
+    -webkit-text-decoration-skip: objects;
+}
+
+.container-wrapper .tip {
+    cursor: pointer;
+    margin-left: .5rem;
+    float: right;
+}
+
+/**
+验证码
+ */
+.check-code {
+    display: inline-block;
+    width: 45%;
+}
+
+.check-code-img {
+    outline: none;
+    border: 0;
+    cursor: pointer;
+    float: right;
+    width: 101px;
+    height: 29px;
+}
+
+.check-code-img:hover {
+    /*border: 1px solid #1890ff;*/
+}
+
+/**
+消息提示
+ */
+.message, .msgFiled {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 43%;
+    z-index: 99999;
+    width: 260px;
+    height: 40px;
+    background-color: #34ce57;
+    opacity: .9;
+    text-align: center;
+    line-height: 40px;
+    font-family: "微软雅黑", "黑体", "宋体";
+    /*font-size:16px;*/
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.msgFiled {
+    display: none;
+    background-color: #dc3545;
+}
+
+
+/*注册css */
+.phone-num-message {
+    font-size: 12px;
+    display: block;
+}
+
+.send-code {
+    display: none;
+    width: 40%;
+}
+.float-right{
+    float: right;
+}
+.display-none {
+    display: none
+}

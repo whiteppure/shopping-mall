@@ -1,0 +1,43 @@
+server:
+  #设置session的过期时间
+  servlet:
+    session:
+      timeout: 1
+spring:
+  #配置静态资源
+  thymeleaf:
+    cache: false
+  security:
+    user:
+      name: admin
+      password: 123
+  mvc:
+    static-path-pattern: /static/**
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/shopping?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      filters: stat,wall
+      use-global-data-source-stat: true
+      connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+logging:
+  level:
+    root: debug
+  file: /shopping-mall.log
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml

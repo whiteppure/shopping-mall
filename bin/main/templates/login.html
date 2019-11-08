@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www:thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>shopping-mall-Demo-登录</title>
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/signin.css" rel="stylesheet">
+    <!-- Jquery -->
+    <script src="/static/js/jquery.min.js"></script>
+    <style type="text/css">
+        /*进度条*/
+        .loading {
+            background: #007bff;
+            height: 3px;
+            position: fixed;
+            top: 0;
+            z-index: 99999;
+
+        }
+        .clear-padding{
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid clear-padding">
+        <span class="loading"></span>
+        <form class="form-signin">
+            <h2 class="form-signin-heading">登录|注册</h2>
+            <p style="color:red" id="msg"></p>
+            <p>
+                <label for="account" class="sr-only">账号</label>
+                <input type="text" id="account"  class="form-control" placeholder="11111111111/13122256789@163.com" required="" autofocus="">
+            </p>
+            <p>
+                <label for="password" class="sr-only">密码</label>
+                <input type="password" id="password"  class="form-control" placeholder="111" required="">
+            </p>
+            <label for="password" class="sr-only">验证码</label>
+            <input type="text" id="code"  style="display: inline-block" class="form-control col-md-6 col-sm-6 col-xs-6" placeholder="不区分大小写" required="">
+            <img src="/images/code" style="margin-left: 15px" id="checkCode">
+            </p>
+            <div class="row">
+                <button style="margin-left: 15px;" class="btn btn-lg  btn-primary col-md-5" type="submit" id="login">登录</button>
+                <a href="/shopping-mall/register" style="margin-left: 25px;" class="btn btn-lg btn-success col-md-5">注册</a>
+            </div>
+        </form>
+    </div>
+    <script src="/static/js/login.js"></script>
+</body>
+</html>

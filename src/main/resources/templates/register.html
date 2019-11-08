@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shopping-mall-Demo-注册</title>
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+    <link href="/static/css/login.css" rel="stylesheet">
+    <!--- font -->
+    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+<span class="loading"></span>
+<!-- 提示信息 -->
+<div class="msgFiled">
+    <i class="fa fa-times" aria-hidden="true"></i>
+    <span  name="error-message"></span>
+</div>
+<div class="container-wrapper">
+    <div class="shopping-mall-logo animated fadeInUp">
+        <span><a href="/shopping-mall">shopping-mall</a></span>
+    </div>
+    <div class="animated">
+        <form class="ant-form ant-form-vertical" name="register-form">
+            <div name="first">
+                <!-- 用户名-->
+                <div class="animated fadeInUp ant-row ant-form-item animation-delay" name="register-username">
+                    <div class="ant-form-item-control-wrapper">
+                        <div class="ant-form-item-control">
+                            <span class="ant-form-item-children">
+                                <span class="ant-input-affix-wrapper">
+                                    <span class="ant-input-prefix">
+                                    <i class="anticon anticon-lock" style="color: rgba(0, 0, 0, 0.25);">
+                                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                                    </i>
+                                    </span>
+                                     <input id="username" class="ant-input" placeholder="请输入用户名" maxlength="20" type="text" required="required">
+                                </span>
+                            </span>
+                            <span  class="tips" name="usernameTips"></span>
+                        </div>
+                    </div>
+                </div>
+                <!--密码 -->
+                <div class="animated fadeInUp ant-row ant-form-item animation-delay" name="register-password">
+                    <div class="ant-form-item-control-wrapper">
+                        <div class="ant-form-item-control">
+                            <span class="ant-form-item-children">
+                                <span class="ant-input-affix-wrapper">
+                                    <span class="ant-input-prefix">
+                                        <i class="anticon anticon-lock" style="color: rgba(0, 0, 0, 0.25);">
+                                            <svg viewBox="64 64 896 896" data-icon="lock" width="1em" height="1em"
+                                                 fill="currentColor" aria-hidden="true" focusable="false" class="">
+                                                <path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z">
+
+                                                </path>
+                                            </svg>
+                                        </i>
+                                    </span>
+                                    <input id="password" class="ant-input" placeholder="请输入密码" maxlength="20" type="password" required="required">
+                                </span>
+                            </span>
+                            <span  class="tips" name="passwordTips"></span>
+                        </div>
+                    </div>
+                </div>
+                <!--验证密码 -->
+                <div class="animated fadeInUp ant-row ant-form-item animation-delay" name="register-check-password">
+                    <div class="ant-form-item-control-wrapper">
+                        <div class="ant-form-item-control">
+                                <span class="ant-form-item-children">
+                                    <span class="ant-input-affix-wrapper">
+                                        <span class="ant-input-prefix">
+                                            <i class="anticon anticon-lock" style="color: rgba(0, 0, 0, 0.25);">
+                                                <svg viewBox="64 64 896 896" data-icon="lock" width="1em" height="1em"
+                                                     fill="currentColor" aria-hidden="true" focusable="false" class="">
+                                                    <path d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z">
+
+                                                    </path>
+                                                </svg>
+                                            </i>
+                                        </span>
+                                        <input id="passwordConfirm" class="ant-input" placeholder="请再次输入密码" maxlength="20" type="password" required="required">
+                                    </span>
+                                </span>
+                            <span  class="tips" name="repasswordTips"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 手机号码-->
+                <div class="animated fadeInUp ant-row ant-form-item animation-delay">
+                    <div class="ant-form-item-control-wrapper">
+                        <div class="ant-form-item-control">
+                            <span class="ant-form-item-children">
+                                <span class="ant-input-affix-wrapper">
+                                    <span class="ant-input-prefix">
+                                        <i class="anticon anticon-user" style="color: rgba(0, 0, 0, 0.25);">
+                                            <i class="fa fa-tablet" aria-hidden="true"></i>
+                                        </i>
+                                    </span>
+                                <input id="phoneNum" class="ant-input" placeholder="请输入手机号码" maxlength="11" type="text">
+                                </span>
+                            </span>
+                            <span  class="tips" name="phoneNumTips"></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 邮箱-->
+                <div class="animated fadeInUp ant-row ant-form-item animation-delay">
+                    <div class="ant-form-item-control-wrapper">
+                        <div class="ant-form-item-control">
+                            <span class="ant-form-item-children">
+                                <span class="ant-input-affix-wrapper">
+                                    <span class="ant-input-prefix">
+                                        <i class="anticon anticon-user" style="color: rgba(0, 0, 0, 0.25);">
+                                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                        </i>
+                                    </span>
+                                    <input id="email" class="ant-input" placeholder="请输入邮箱" maxlength="20" type="text">
+                                </span>
+                            </span>
+                            <span  class="tips" name="emailTips"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 第二步 -->
+            <div name="second">
+                <!-- 上一步填写的手机号码 -->
+                <div class="animated fadeInUp ant-row ant-form-item animation-delay" id="phone-num" style="display: none">
+                    <div class="ant-form-item-control-wrapper">
+                        <div class="ant-form-item-control">
+                            <span>
+                                <span  name="phone-num"> </span>
+                                <span class="phone-num-message">请点击发送短信,并查收手机短信信息,填写短信中的验证码，确保您的手机号真实有效。</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 手机号码 验证码-->
+                <div class="animated fadeInUp ant-row ant-form-item animation-delay" style="display: none; width: 50%" name="phone-code">
+                    <div class="ant-form-item-control-wrapper">
+                        <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                            <span class="ant-input-affix-wrapper">
+                                <span class="ant-input-prefix">
+                                    <i class="anticon anticon-user" style="color: rgba(0, 0, 0, 0.25);">
+                                        <i class="fa fa-key" aria-hidden="true"></i>
+                                    </i>
+                                </span>
+                                <input placeholder="验证码" autocomplete="off" type="text" class="ant-input" id="code" required="required">
+                            </span>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="send-code">
+                    <input name="sendCode" type="button" class="ant-btn ant-btn-primary float-right" value="发送短信+"/>
+                </div>
+                <!-- 注册按钮-->
+                <div class="animated fadeInUp ant-row ant-form-item animation-delay display-none" name="register">
+                    <div class="ant-form-item-control-wrapper">
+                        <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                            <button id="register" type="button" class="ant-btn ant-btn-primary ant-btn-block">
+                                    <span>注 册</span>
+                            </button>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <!-- 分步注册  获取手机号验证码 -->
+                <div class="animated fadeInUp ant-row ant-form-item animation-delay" name="next">
+                    <div class="ant-form-item-control-wrapper">
+                        <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                            <button id="next"  class="ant-btn ant-btn-primary ant-btn-block">
+                                    <span>下一步</span>
+                            </button>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+
+
+            <!--  用户登录  -->
+            <div class="ant-row">
+                <a  id="back-step" class="tip animated fadeInUp animation-delay display-none">
+                    上一步
+                </a>
+                <a id="login" href="/shopping-mall/login" class="tip animated fadeInUp animation-delay">
+                    用户登录
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="/static/js/register.js"></script>
+</body>
+</html>
