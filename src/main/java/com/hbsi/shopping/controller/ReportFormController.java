@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
@@ -28,11 +27,10 @@ public class ReportFormController {
     /**
      * 导出报表
      *
-     * @return
      */
     @RequestMapping(value = "export")
     @ResponseBody
-    public void export(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public void export(HttpServletResponse response){
         //获取数据
         List<ProductInfo> infoList = productInfoService.list();
 
@@ -73,7 +71,7 @@ public class ReportFormController {
     }
 
     //发送响应流方法
-    public void setResponseHeader(HttpServletResponse response, String fileName) {
+    private void setResponseHeader(HttpServletResponse response, String fileName) {
         try {
             try {
                 fileName = new String(fileName.getBytes(), "ISO8859-1");
