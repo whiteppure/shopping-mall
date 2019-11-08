@@ -1,26 +1,37 @@
 package com.hbsi.shopping.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.hbsi.shopping.exception.BaseException;
+import com.hbsi.shopping.exception.ExceptionEnum;
 import com.hbsi.shopping.productinfo.entity.ProductInfo;
 import com.hbsi.shopping.productinfo.service.IProductInfoService;
+import com.hbsi.shopping.user.entity.User;
+import com.hbsi.shopping.user.service.IUserService;
 import com.hbsi.shopping.utils.ExcelUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
+@Slf4j
 @Controller
 @RequestMapping(value = "/excel/")
 public class ReportFormController {
 
     private final IProductInfoService productInfoService;
 
-    public ReportFormController(IProductInfoService productInfoService) {
+    private final IUserService userService;
+
+    public ReportFormController(IProductInfoService productInfoService, IUserService userService) {
         this.productInfoService = productInfoService;
+        this.userService = userService;
     }
 
 
@@ -30,9 +41,11 @@ public class ReportFormController {
      */
     @RequestMapping(value = "export")
     @ResponseBody
-    public void export(HttpServletResponse response){
+    public void export(HttpServletResponse response, HttpServletRequest request){
+        User user = (User)request.getSession().getAttribute("user");
+        User u = userService.getById(user.getId());
         //获取数据
-        List<ProductInfo> infoList = productInfoService.list();
+        List<ProductInfo> infoList = productInfoService.list(new QueryWrapper<ProductInfo>().eq("productInfoStatus",1).eq("shopId",u.getShopId()));
 
         //excel标题
         String[] title = {"编号", "名称", "库存", "价格", "类型"};
@@ -77,7 +90,8 @@ public class ReportFormController {
                 fileName = new String(fileName.getBytes(), "ISO8859-1");
             } catch (UnsupportedEncodingException e) {
                 // TODO Auto-generated catch block
-                e.printStackTrace();
+                log.debug(e.getMessage(),"商品Excel导出失败");
+                throw new BaseException(ExceptionEnum.EXCEL_EXPORT_FILED,"商品Excel导出失败");
             }
             response.setContentType("application/octet-stream;charset=ISO8859-1");
             response.setHeader("Content-Disposition", "attachment;filename=" + fileName);

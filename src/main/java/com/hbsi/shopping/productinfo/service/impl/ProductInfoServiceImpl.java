@@ -1,6 +1,5 @@
 package com.hbsi.shopping.productinfo.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
 import com.hbsi.shopping.address.entity.UserAddress;
@@ -12,7 +11,6 @@ import com.hbsi.shopping.cartproduct.mapper.CartProductMapper;
 import com.hbsi.shopping.exception.BaseException;
 import com.hbsi.shopping.exception.ExceptionEnum;
 import com.hbsi.shopping.orderinfo.entity.OrderInfo;
-import com.hbsi.shopping.orderinfo.mapper.OrderInfoMapper;
 import com.hbsi.shopping.orderinfo.service.impl.OrderInfoServiceImpl;
 import com.hbsi.shopping.orderproduct.entity.OrderProduct;
 import com.hbsi.shopping.orderproduct.service.impl.OrderProductServiceImpl;
@@ -22,17 +20,12 @@ import com.hbsi.shopping.productinfo.service.IProductInfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hbsi.shopping.utils.ImageUtils;
 import com.hbsi.shopping.utils.NumUtils;
-import com.hbsi.shopping.utils.Response;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -140,45 +133,50 @@ public class ProductInfoServiceImpl extends ServiceImpl<ProductInfoMapper, Produ
     @Transactional
     public boolean updateGoods(MultipartFile[] files, ProductInfo productInfo) {
 
+        final  String  NOPIC = "/static/image/product/noPic.jpg";
+
         try {
             // 有新的图片上传
+            // 有图片是"暂无照片"时
             if (!ObjectUtils.isEmpty(files)){
                 String[] pathos = ImageUtils.upLoadFiles(files);
+                System.out.println("文件数量======>"+pathos.length);
                 for (int i = 0; i < pathos.length; i++) {
-                    if (productInfo.getProductImg().equals("undefined")){
+                    if (productInfo.getProductImg().equals("undefined") || ObjectUtils.isEmpty(productInfo.getProductImg())){
                         productInfo.setProductImg(pathos[i]);
                         continue;
-                    }else if (productInfo.getProductImgPic1().equals("undefined")){
+                    }else if (productInfo.getProductImgPic1().equals("undefined") || ObjectUtils.isEmpty(productInfo.getProductImgPic1()) ){
                         productInfo.setProductImgPic1(pathos[i]);
                         continue;
-                    }else if (productInfo.getProductImgPic2().equals("undefined")){
+                    }else if ( productInfo.getProductImgPic2().equals("undefined") || ObjectUtils.isEmpty(productInfo.getProductImgPic2())){
                         productInfo.setProductImgPic2(pathos[i]);
                         continue;
-                    }else if (productInfo.getProductImgPic3().equals("undefined")){
+                    }else if (productInfo.getProductImgPic3().equals("undefined") || ObjectUtils.isEmpty(productInfo.getProductImgPic3())){
                         productInfo.setProductImgPic3(pathos[i]);
                         continue;
-                    }else if (productInfo.getProductImgPic4().equals("undefined")){
+                    }else if (productInfo.getProductImgPic4().equals("undefined") || ObjectUtils.isEmpty(productInfo.getProductImgPic4())){
                         productInfo.setProductImgPic4(pathos[i]);
                     }
                 }
             }else{
+                //=========== 测试 ok ===========
                 // 没有新图片上传 判断 传过来的路径 和 数据库 里边的图片路径比对
                 ProductInfo selectById = productInfoMapper.selectById(productInfo.getId());
                 //如果不相同 将数据库里边的 该字段图片 设置为 "暂无图片"样式
                 if (!productInfo.getProductImg().equals(selectById.getProductImg())){
-                    productInfo.setProductImg("/static/image/product/noPic.jpg");
+                    productInfo.setProductImg(NOPIC);
                 }
                 if (!productInfo.getProductImgPic1().equals(selectById.getProductImgPic1())){
-                    productInfo.setProductImgPic1("/static/image/product/noPic.jpg");
+                    productInfo.setProductImgPic1(NOPIC);
                 }
                 if (!productInfo.getProductImgPic2().equals(selectById.getProductImgPic2())){
-                    productInfo.setProductImgPic2("/static/image/product/noPic.jpg");
+                    productInfo.setProductImgPic2(NOPIC);
                 }
                 if (!productInfo.getProductImgPic3().equals(selectById.getProductImgPic3())){
-                    productInfo.setProductImgPic3("/static/image/product/noPic.jpg");
+                    productInfo.setProductImgPic3(NOPIC);
                 }
                 if (!productInfo.getProductImgPic4().equals(selectById.getProductImgPic4())){
-                    productInfo.setProductImgPic4("/static/image/product/noPic.jpg");
+                    productInfo.setProductImgPic4(NOPIC);
                 }
             }
             int i = productInfoMapper.updateById(productInfo);

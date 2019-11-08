@@ -1,9 +1,7 @@
 package com.hbsi.shopping.productinfo.controller;
 
-import java.math.BigDecimal;
 import java.util.*;
 
-import com.alipay.api.domain.Image;
 import com.alipay.api.domain.Product;
 import com.hbsi.shopping.address.entity.UserAddress;
 import com.hbsi.shopping.address.service.IUserAddressService;
@@ -20,7 +18,6 @@ import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -40,8 +37,6 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * <p>

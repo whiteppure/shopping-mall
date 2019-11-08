@@ -144,7 +144,10 @@ public enum ExceptionEnum {
 	AD_UPDATE_FILED("001902","广告修改失败"),
 	AD_ADD_FILED("001903","添加广告失败"),
 
-	
+	/**
+	 * other
+	 */
+	EXCEL_EXPORT_FILED("002000","Excel导出失败"),
 
 	;
 	private String status;
