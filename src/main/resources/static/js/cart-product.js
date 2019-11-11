@@ -208,11 +208,9 @@ $("#settleShoppingCart").click(function () {
 
 
 
-//======================= 支付订单====================
+//=======================点击提交订单====================
 $("#pay-order").click(function () {
 
-    $("#pay-order").attr("disabled","disabled");
-    $("#pay-order").text("生成订单中...");
 
     let userId = $("input[name='userId']").val();
     let orderPrice = $("#totalPrice").text();
@@ -230,9 +228,6 @@ $("#pay-order").click(function () {
         } else {
             //获取地址id
             let addressId = $(".address-id-flag").val();
-            console.log("收货地址id:" + addressId);
-            console.log("userId:" + userId);
-            console.log("orderPrice:" + orderPrice);
             //根据收货地址id查询收货地址   判断收货地址信息是否完整
             $.ajax({
                 url: "/address/getAddressById",
@@ -248,10 +243,13 @@ $("#pay-order").click(function () {
                             $(".msgFiled").fadeOut();
                         }, 1200);
                     } else {
-                        if (data.status == "200") {
-                            console.log(data.status);
-                            //提交订单信息 ----> 写入数据库 后台 选择付款方式
-                            let url = "/pay/settleCart?userId=" + userId + "&orderPrice=" + orderPrice + "&addressId=" + addressId;
+
+                        if (data.status === "200") {
+                            $("#pay-order").attr("disabled","disabled");
+                            $("#pay-order").text("生成订单中...");
+                            //提交订单信息 ----> 写入数据库 后台 选择付款方式 可改用post传数据
+                            let url = "/shopping-mall/pay-way?" +"data=123456789"+"&pId=GUIV12HJKGHJK34567"+"&cId=DFGHJKfghhujklrtyuixcvbnertyuixcvbn"
+                                +"&userId=" + userId + "&orderPrice=" + orderPrice + "&addressId=" + addressId;
                             window.location.href = url;
                         }
 
@@ -279,6 +277,9 @@ $("#pay-order").click(function () {
 
 //==============清空用户购物车里的商品==================
 $("#delete-cart").click(function () {
+    $("#settleShoppingCart").attr("disabled","disabled");
+    $(this).attr("disabled","disabled");
+    $(this).text("正在清空...");
     $.ajax({
         type: "POST",
         url: "/cartProduct/deleteCartProductByUserId",

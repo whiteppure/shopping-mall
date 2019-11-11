@@ -10,6 +10,7 @@ function GetQueryString(name) {
 
 //购买商品  支付订单
 $("#pay-order").click(function () {
+    let _this = $(this);
 
     var userId = GetQueryString("userId");
     var productId = GetQueryString("productId");
@@ -42,10 +43,12 @@ $("#pay-order").click(function () {
                             $(".msgFiled").fadeOut();
                         }, 1200);
                     } else {
-                        if (data.status == "200"){
-                            console.log(data.status);
+                        if (data.status === "200"){
+                            _this.attr('disabled','disabled');
+                            _this.text("提交订单中...");
                             //提交订单信息 ----> 写入数据库 后台 选择付款方式
-                            var url = "/pay/payOrder?userId="+userId+"&productId="+productId+"&productCount="+productCount+"&addressId="+addressId;
+                            let url = "/shopping-mall/pay-way?"+"data=123456789"+"&pId=GUIV1234567"+"&cId=DFGHJKfghhujklrtyuixcvbnertyuixcvbn" +
+                                "&userId="+userId+"&productId="+productId+"&productCount="+productCount+"&addressId="+addressId;
                             window.location.href=url;
                         }
 

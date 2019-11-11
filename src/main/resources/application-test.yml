@@ -1,4 +1,10 @@
 spring:
+  ##Email配置
+#  mail:
+#    host: smtp.163.com    #邮箱服务器地址
+#    username: xxx@163.com   #邮箱账号
+#    password: xxx            #邮箱密码
+#    default-encoding: utf-8    #默认编码
 
   #上传文件配置
   servlet:
@@ -9,19 +15,16 @@ spring:
       max-file-size: 4MB
       # 是否支持批量上传   (默认值 true)
       enabled: true
-
   #web
   thymeleaf:
     cache: false
-
   #spring security 配置
 #  security:
 #    user:
 #      name: admin
 #      password: 123
+
   #spring mvc 配置
-
-
   mvc:
     static-path-pattern: /static/**
   # 使用spring-data 操作ElasticSearch配置

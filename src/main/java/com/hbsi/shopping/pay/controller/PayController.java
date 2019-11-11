@@ -21,11 +21,11 @@ import com.hbsi.shopping.productinfo.service.IProductInfoService;
 import com.hbsi.shopping.user.entity.User;
 import com.hbsi.shopping.user.service.IUserService;
 import com.hbsi.shopping.utils.NumUtils;
+import com.hbsi.shopping.utils.Response;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -50,7 +50,6 @@ public class PayController {
 
     private final IOrderInfoService orderInfoService;
 
-    private final IPayService payService;
 
     private final ICartProductService cartProductService;
 
@@ -66,9 +65,8 @@ public class PayController {
 
     private final CartProductServiceImpl cartProductServiceImpl;
 
-    public PayController(IOrderInfoService orderInfoService, IPayService payService, ICartProductService cartProductService, ICartService cartService, IUserService userService, IProductInfoService productInfoService, OrderInfoServiceImpl orderInfoServiceImpl, OrderProductServiceImpl orderProductServiceImpl, CartProductServiceImpl cartProductServiceImpl) {
+    public PayController(IOrderInfoService orderInfoService,ICartProductService cartProductService, ICartService cartService, IUserService userService, IProductInfoService productInfoService, OrderInfoServiceImpl orderInfoServiceImpl, OrderProductServiceImpl orderProductServiceImpl, CartProductServiceImpl cartProductServiceImpl) {
         this.orderInfoService = orderInfoService;
-        this.payService = payService;
         this.cartProductService = cartProductService;
         this.cartService = cartService;
         this.userService = userService;
@@ -90,12 +88,13 @@ public class PayController {
     @GetMapping("payOrder")
     @ApiOperation("提交订单信息")
     @Transactional
-    public String payOrder(
+    @ResponseBody
+    public Response payOrder(
             @ApiParam("商品id") @RequestParam Integer productId,
             @ApiParam("用户id") @RequestParam Integer userId,
             @ApiParam("购买商品数量") @RequestParam Integer productCount,
-            @ApiParam("收货地址id") @RequestParam Integer addressId,
-            Model model) {
+            @ApiParam("收货地址id") @RequestParam Integer addressId
+            ) {
         try {
             if (ObjectUtils.isEmpty(userId)){
                 log.debug("用户id为空");
@@ -124,6 +123,8 @@ public class PayController {
             orderInfo.setUserId(user.getId());
             orderInfo.setUserName(user.getUserName());
             orderInfo.setAddressId(addressId);
+            orderInfo.setOrderDesc(user.getUserName()+"的订单描述");
+            orderInfo.setOrderName(user.getUserName()+"的订单");
             //订单价格
             BigDecimal decimal = new BigDecimal(productCount);
             orderInfo.setOrderPrice( productInfo.getProductPrice().multiply(decimal));
@@ -154,8 +155,7 @@ public class PayController {
                 throw new BaseException(ExceptionEnum.ORDER_INFO_ADD_FILED,"商品订单创建失败");
             }
             log.debug("提交订单信息成功");
-            model.addAttribute("orderInfo",order);
-            return "/shopping/pay-money-way.html";
+            return new Response(order);
 
         } catch (Exception e) {
             log.debug("提交订单信息失败", e.getMessage());
@@ -167,13 +167,13 @@ public class PayController {
 
     //购物车 提交商品订单
     @ApiOperation("购物车 提交商品订单")
-    @GetMapping("settleCart")
+    @PostMapping("settleCart")
     @Transactional
-    public strictfp String settleCart(
+    @ResponseBody
+    public strictfp Response settleCart(
             @ApiParam("用户id") @RequestParam Integer userId,
             @ApiParam("收货地址id") @RequestParam Integer addressId,
-            @ApiParam("订单价格") @RequestParam  BigDecimal orderPrice,
-            Model model
+            @ApiParam("订单价格") @RequestParam  BigDecimal orderPrice
     ){
         try {
             if (ObjectUtils.isEmpty(userId)){
@@ -196,6 +196,8 @@ public class PayController {
             orderInfo.setUserId(user.getId());
             orderInfo.setUserName(user.getUserName());
             orderInfo.setAddressId(addressId);
+            orderInfo.setOrderName(user.getUserName()+"的订单");
+            orderInfo.setOrderDesc(user.getUserName()+"的订单描述");
             //订单价格
 //            BigDecimal price = new BigDecimal(orderPrice);
             orderInfo.setOrderPrice(orderPrice);
@@ -228,15 +230,17 @@ public class PayController {
                     throw new BaseException(ExceptionEnum.ORDER_INFO_ADD_FILED, "商品订单创建失败");
                 }
             });
-            //成功保存订单后 删除购物车中的商品
-            Boolean flag = cartProductServiceImpl.deleteCartProductByUserId(userId);
-            if (!flag){
-                log.debug("删除购物车中的商品失败");
-                throw new BaseException(ExceptionEnum.ORDER_INFO_ADD_FILED, "删除购物车中的商品失败");
+            // 如果 购物车中的商品不为空 删除
+            if (!ObjectUtils.isEmpty(products)){
+                //成功保存订单后 删除购物车中的商品
+                Boolean flag = cartProductServiceImpl.deleteCartProductByUserId(userId);
+                if (!flag){
+                    log.debug("删除购物车中的商品失败");
+                    throw new BaseException(ExceptionEnum.ORDER_INFO_ADD_FILED, "删除购物车中的商品失败");
+                }
             }
             log.debug("提交订单信息成功");
-            model.addAttribute("orderInfo",order);
-            return "/shopping/pay-money-way.html";
+            return new Response(order);
         } catch (BaseException e) {
             log.debug("提交订单失败",e.getMessage());
             throw new BaseException(ExceptionEnum.ORDER_INFO_ADD_FILED, "商品订单创建失败");

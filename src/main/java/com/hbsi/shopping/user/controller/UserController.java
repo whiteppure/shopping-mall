@@ -11,11 +11,8 @@ import com.aliyuncs.CommonRequest;
 import com.aliyuncs.CommonResponse;
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;
-import com.aliyuncs.exceptions.ClientException;
-import com.aliyuncs.exceptions.ServerException;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,7 +32,6 @@ import com.hbsi.shopping.power.entity.UserPower;
 import com.hbsi.shopping.power.service.IUserPowerService;
 import com.hbsi.shopping.role.entity.UserRole;
 import com.hbsi.shopping.role.service.IUserRoleService;
-import com.hbsi.shopping.role.service.impl.UserRoleServiceImpl;
 import com.hbsi.shopping.shop.entity.Shop;
 import com.hbsi.shopping.shop.service.IShopService;
 import com.hbsi.shopping.user.entity.User;
@@ -49,7 +45,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
-import net.sf.jsqlparser.statement.update.Update;
 
 /**
  * <p>
@@ -588,6 +583,9 @@ public class UserController {
 		}
 
 	}
+
+
+
 
 
 	/* ========================== 用户验证=========================== */

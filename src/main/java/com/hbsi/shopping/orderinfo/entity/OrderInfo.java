@@ -41,6 +41,13 @@ public class OrderInfo implements Serializable {
     private String orderNum;
 
     /**
+     * 订单名称
+     */
+    @TableField("orderName")
+    @ApiModelProperty(value = "订单名称",name = "orderName",example = "小米X",required = true)
+    private String orderName;
+
+    /**
      * 收货地址id
      */
     @TableField("addressId")
@@ -89,6 +96,13 @@ public class OrderInfo implements Serializable {
     @TableField("createTime")
     @ApiModelProperty(value = "订单创建日期",name="createTime",required = true,hidden = true)
     private String createTime;
+
+    /**
+     * 订单描述
+     */
+    @TableField("orderDesc")
+    @ApiModelProperty(value = "订单描述",name = "orderDesc",example = "小米X订单描述")
+    private String orderDesc;
 
 
 }

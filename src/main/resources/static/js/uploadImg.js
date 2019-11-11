@@ -1,6 +1,6 @@
-var imgSrc = [];
-var imgFile = [];
-var imgName = [];
+let imgSrc = [];
+let imgFile = [];
+let imgName = [];
 
 
 //删除 回显的图片
@@ -10,6 +10,7 @@ $('body').on('click','.delbtn',function () {
 });
 
 
+//========方法 入口==============
 imgUpload({
     inputId:'fileInput', //input框id
     imgBox:'imgBox', //图片容器id
@@ -39,7 +40,12 @@ function imgUpload(obj) {
         fileListLength = fileList.length;
         // 回显图片 个数
         oldImgLength =  $("#upd_area").children(".imageDiv").length;
+        // 需要上传的图片总数
         imgCount = fileList.length + oldImgLength;
+
+        //============ 修改图片判断时  删除了几个图片就要上传几张图片============
+
+
         if (imgCount > 5){
             alert("上传图片最多为5张!");
             return false;
@@ -110,7 +116,7 @@ function limitNum(num) {
 }
 
 function submitPicture(url, data) {
-    for (var p of data) {
+    for (let p of data) {
         console.log(p);
     }
     if (url && data) {
@@ -123,6 +129,12 @@ function submitPicture(url, data) {
             contentType: false,
             success: function (data) {
                 console.log(data);
+                if (data.status === "200"){
+                    alert("修改商品成功");
+                    window.location.href = "/shop/my-goods";
+                }else {
+                    alert("修改商品信息失败");
+                }
             }
         });
     } else {

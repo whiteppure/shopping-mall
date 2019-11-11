@@ -28,7 +28,6 @@
     <!-- jQuery -->
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/bootstrap/js/bootstrap.js"></script>
-    <script src="/static/js/pay-way.js"></script>
 </head>
 <body>
     <!-- 进度条 -->
@@ -54,12 +53,12 @@
                             <p class="post-date">成功付款后，我们会尽快发货</p>
                         </div>
                         <div class="info">
-                            <input type="hidden" th:value="${orderInfo.addressId}" name="addressId">
                             <p>
-                                金额：<span class="pay-total" th:text="${orderInfo.orderPrice}">@orderPrice</span>
+                                金额：<span class="pay-total" name="orderPrice"></span>
                             </p>
                             <p>
-                                订单：<span th:text="${orderInfo.orderNum}"> @orderNum</span></p>
+                                订单：<span name="orderNum"></span>
+                            </p>
                             <p>
                                 配送：<span name="userName">@User</span>
                                 <span class="line">/</span>
@@ -108,7 +107,7 @@
                             </div>
                         </div>
                         <div class="box-ft clearfix">
-                            <a th:href="@{/aliPay/pay?money=}+${orderInfo.orderPrice}" class="btn pay-order">支付订单</a>
+                            <button type="button" id="pay-order" class="btn pay-order">支付订单</button>
                         </div>
                     </div>
                 </form>
@@ -120,7 +119,8 @@
         <!-- 底部栏 -->
         <div th:replace="~{common/foot-bar::footer}"></div>
     </div>
-<script src="/static/js/common.js"></script>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/pay-way.js"></script>
 </body>
 
 </html>

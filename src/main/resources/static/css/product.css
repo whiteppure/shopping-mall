@@ -221,6 +221,13 @@ button:focus {
 .switch:hover {
     color: #2e6da4;
 }
+.btn-type{
+    border: 0;
+    background-color: #fff;
+}
+.btn-type>i:hover{
+    font-weight: bold;
+}
 
 .btn-goods {
     border: 0;

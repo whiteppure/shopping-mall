@@ -9,13 +9,6 @@ function GetQueryString(name) {
 
 //请求订单数据
 $(function () {
-    //让页面只刷新一次
-    $(document).ready(function () {
-        if(location.href.indexOf("#reloaded")==-1){
-            location.href=location.href+"#reloaded";
-            location.reload();
-        }
-    });
     //添加判断 防止 userId 失效
     var userId =  $("input[name='userId']").val();
     if (userId == undefined || userId == "undefined" || userId == "" || userId == null){

@@ -26,6 +26,9 @@ public class ElasticSearchController {
     public Response<ProductInfo> test(){
         EsDemo test = new EsDemo(1, "张三", 20, "男");
         testRepository.index(test);
+//        testRepository.delete(Entity entity);
+//        testRepository.findAll()
+//        testRepository.search(条件)
         return new Response<>();
     }
 

@@ -9,13 +9,13 @@ $(()=>  {
 
 
 //控制商品数量
-$('body').on('click','.add',()=>  {
+$('body').on('click','.add',function(){
     let n=$(this).prev().val();
     let num=parseInt(n)+1;
     if(num===0) return;
     $(this).prev().val(num);
 });
-$('body').on('click','.jian',()=>  {
+$('body').on('click','.jian',function() {
     let n=$(this).next().val();
     let num=parseInt(n)-1;
     if(num===0)return;
@@ -26,7 +26,7 @@ $('body').on('click','.jian',()=>  {
 
 
 //=====================发布评论==================
-$('body').on('click','#comment',()=>  {
+$('body').on('click','#comment',function()  {
     let userId = $("input[name='userId']").val();
     if (userId === undefined || userId === '' || userId === undefined){
         $(".msgFiled").fadeIn("slow");
@@ -145,7 +145,7 @@ $('body').on('click','#join-cart-btn',()=>  {
 
 
 
-//===================商品预览图片==========
+//===================商品预览图片==============
 $('body').on('click', '.cover', function () {
     let this_ = $(this);
     let images = this_.parents('.image-list').find('.cover');
@@ -171,7 +171,6 @@ $('body').on('click','#buy-product-btn', ()=> {
         //提示用户先登录,才可以购买商品
         $(".msgFiled").fadeIn("slow");
         $("span[name='msgFiled']").text("您还未登录!");
-        // window.location.href="/login";
         setTimeout(function () {
             $(".msg").fadeOut();
             $(".msgFiled").fadeOut();

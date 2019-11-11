@@ -6,7 +6,14 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.annotation.XmlType;
 
+import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
+import com.hbsi.shopping.exception.BaseException;
+import com.hbsi.shopping.exception.ExceptionEnum;
+import com.hbsi.shopping.orderinfo.entity.OrderInfo;
+import com.hbsi.shopping.orderinfo.service.IOrderInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -36,6 +43,12 @@ public class AliPayController{
     String public_key = AlipayConfig.alipay_public_key;
     String signtype = AlipayConfig.sign_type;
 
+    private final IOrderInfoService orderInfoService;
+
+    public AliPayController(IOrderInfoService orderInfoService) {
+        this.orderInfoService = orderInfoService;
+    }
+
     /**
      * 支付请求
      *
@@ -44,13 +57,15 @@ public class AliPayController{
      * @throws Exception
      */
     @RequestMapping("pay")
-    public void pay(HttpServletResponse response,String money) throws Exception {
+    public void pay(HttpServletResponse response,Integer orderId) throws Exception {
+        if (ObjectUtils.isEmpty(orderId))
+            throw new BaseException(ExceptionEnum.PAY_ORDER_FILED,"订单id为空");
+        OrderInfo orderInfo = orderInfoService.getById(orderId);
 
-        // 模拟从前台传来的数据
-        String orderNo = NumUtils.createOrderNum(); // 生成订单号
-        String totalAmount = money; // 支付总金额
-        String subject = "订单名称示例"; // 订单名称
-        String body = "商品描述示例"; // 商品描述
+        String orderNo = orderInfo.getOrderNum(); // 生成订单号
+        String totalAmount = orderInfo.getOrderPrice().toString(); // 支付总金额
+        String subject = orderInfo.getOrderName(); // 订单名称
+        String body= orderInfo.getOrderDesc();// 商品描述
 
         // 封装请求客户端
         AlipayClient client = new DefaultAlipayClient(url, app_id, private_key, format, charset, public_key, signtype);

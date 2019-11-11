@@ -8,6 +8,7 @@ import com.hbsi.shopping.productinfo.service.IProductInfoService;
 import com.hbsi.shopping.user.entity.User;
 import com.hbsi.shopping.user.service.IUserService;
 import com.hbsi.shopping.utils.ExcelUtil;
+import com.hbsi.shopping.utils.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
@@ -41,7 +43,7 @@ public class ReportFormController {
      */
     @RequestMapping(value = "export")
     @ResponseBody
-    public void export(HttpServletResponse response, HttpServletRequest request){
+    public Response export(HttpServletResponse response, HttpServletRequest request){
         User user = (User)request.getSession().getAttribute("user");
         User u = userService.getById(user.getId());
         //获取数据
@@ -70,16 +72,27 @@ public class ReportFormController {
 
         //创建HSSFWorkbook
         HSSFWorkbook wb = ExcelUtil.getHSSFWorkbook(sheetName, title, content, null);
-
+        OutputStream os=null;
         //响应到客户端
         try {
             this.setResponseHeader(response, fileName);
-            OutputStream os = response.getOutputStream();
+            os = response.getOutputStream();
             wb.write(os);
             os.flush();
-            os.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+            log.debug("导出Excel成功");
+            return new Response();
+        } catch (IOException e) {
+            log.debug(e.getMessage(), "导出excel失败");
+            throw new BaseException(ExceptionEnum.EXCEL_EXPORT_FILED, "导出excel失败");
+        } finally {
+            if (os != null) {
+                try {
+                    os.close();
+                } catch (IOException e) {
+                    log.debug(e.getMessage(), "关闭输出流异常");
+                    throw new BaseException(ExceptionEnum.EXCEL_EXPORT_FILED, "关闭输出流异常");
+                }
+            }
         }
     }
 
@@ -89,11 +102,10 @@ public class ReportFormController {
             try {
                 fileName = new String(fileName.getBytes(), "ISO8859-1");
             } catch (UnsupportedEncodingException e) {
-                // TODO Auto-generated catch block
                 log.debug(e.getMessage(),"商品Excel导出失败");
                 throw new BaseException(ExceptionEnum.EXCEL_EXPORT_FILED,"商品Excel导出失败");
             }
-            response.setContentType("application/octet-stream;charset=ISO8859-1");
+            response.setContentType("application/octet-stream;charssheetNameet=ISO8859-1");
             response.setHeader("Content-Disposition", "attachment;filename=" + fileName);
             response.addHeader("Pargam", "no-cache");
             response.addHeader("Cache-Control", "no-cache");
