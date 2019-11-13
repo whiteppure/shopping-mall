@@ -1,6 +1,6 @@
 在线项目文档
 https://note.youdao.com/ynoteshare1/index.html?id=f185e367693d6a0d4acc195807d10da5&type=note
-##shopping-mall
+<h2>shopping-mall</h2>
 <p>shopping是一个面向校园的二手商城交易系统,本系统用Java编写,
 该系统的意义在于可以为同学提供一个二手交易平台
 同学们可以将自己闲置的物品通过这个平台出售,可以更好的方便
