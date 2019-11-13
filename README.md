@@ -4,6 +4,16 @@
 同学们可以将自己闲置的物品通过这个平台出售,可以更好的方便
 同学们的生活.</p>
 
+###接口演示
+####1.导出Excel
+![Image text](/src/main/resources/static/image/readMe/excel.gif)
+####2.加入购物车
+
+####3.注册
+
+####4.搜索
+
+
 ##组成
 <h4>1.shopping-mall-admin  后台管理系统</h4>
 该系统主要是管理shopping-mall商城和shopping-mall店铺系统,扮演的角色是管理员<br>
