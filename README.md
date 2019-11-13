@@ -11,7 +11,7 @@ https://note.youdao.com/ynoteshare1/index.html?id=f185e367693d6a0d4acc195807d10d
 ![Image text](/src/main/resources/static/image/readMe/excel.gif)
 <h4>2.加入购物车</h4>
 ![Image text](/src/main/resources/static/image/readMe/cart.gif)
-<h4>.注册</h4>
+<h4>3.支付功能</h4>
 ![Image text](/src/main/resources/static/image/readMe/pay.gif)
 <h4>4.搜索</h4>
 ![Image text](/src/main/resources/static/image/readMe/search.gif)
@@ -48,5 +48,5 @@ https://note.youdao.com/ynoteshare1/index.html?id=f185e367693d6a0d4acc195807d10d
 <h3 style="#ccc">特别感谢</h3>
 http://www.jq22.com/<br>
 https://github.com/
-
+<br>
 <span style="color:#ccc">希望可以帮到你~</span>
