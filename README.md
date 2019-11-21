@@ -12,9 +12,9 @@ https://note.youdao.com/ynoteshare1/index.html?id=f185e367693d6a0d4acc195807d10d
 <h4>2.加入购物车</h4>
 ![image](https://github.com/whitePure/shopping-mall/blob/testBranch/images/cart.gif)
 <h4>3.支付功能</h4>
-![Image](https://github.com/whitePure/shopping-mall/blob/testBranch/pay.gif)
+![image](https://github.com/whitePure/shopping-mall/blob/testBranch/pay.gif)
 <h4>4.搜索</h4>
-![Image text](https://github.com/whitePure/shopping-mall/blob/testBranch/search.gif)
+![image](https://github.com/whitePure/shopping-mall/blob/testBranch/search.gif)
 
 
 
