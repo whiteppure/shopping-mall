@@ -4,7 +4,12 @@
 
 ## [项目在线文档](https://github.com/whitePure/shopping-mall/blob/testBranch/README.md)
 <p align="center">
-<a href="#"><img alt="JDK" src="https://img.shields.io/badge/JDK-1.8-yellow.svg?style=flat-square"/></a>
+<a href="#"><img alt="JDK" src="https://img.shields.io/badge/JDK-1.8-orange"/></a>
+<a href="#"><img alt="mybatisplus" src="https://img.shields.io/badge/mybatisplus-3.x-yellowgreen"/></a> 
+<a href="#"><img alt="mybatisplus" src="https://img.shields.io/badge/springboot-2.x-green"/></a>
+<a href="#"><img alt="jquery" src="https://img.shields.io/badge/jquery-1.x-red"/></a>
+<a href="#"><img alt="jquery" src="https://img.shields.io/badge/ssm----lightgrey"/></a> 
+
 </p>
 
 
