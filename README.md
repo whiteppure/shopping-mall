@@ -8,13 +8,13 @@ https://note.youdao.com/ynoteshare1/index.html?id=f185e367693d6a0d4acc195807d10d
 
 <h2>接口演示</h2>
 <h4>1.导出Excel</h4>
-![image](https://github.com/whitePure/shopping-mall/images/excel.gif)
+![image](https://github.com/whitePure/shopping-mall/blob/testBranch/images/excel.gif)
 <h4>2.加入购物车</h4>
-![image](https://github.com/AngelSXD/sxd_first_repository/blob/master/images/20160615165142.png)
-<h4>.支付功能</h4>
-![Image text](./src/main/resources/static/image/readMe/pay.gif)
+![image](https://github.com/whitePure/shopping-mall/blob/testBranch/images/cart.gif)
+<h4>3.支付功能</h4>
+![Image](https://github.com/whitePure/shopping-mall/blob/testBranch/pay.gif)
 <h4>4.搜索</h4>
-![Image text](./src/main/resources/static/image/readMe/search.gif)
+![Image text](https://github.com/whitePure/shopping-mall/blob/testBranch/search.gif)
 
 
 
@@ -42,12 +42,11 @@ https://note.youdao.com/ynoteshare1/index.html?id=f185e367693d6a0d4acc195807d10d
 
 
 <h2>项目演示</h2>
-前台演示:<a href="http://49.235.206.214">shopping-mall Demo</a><br>
-后台管理:<a href="http://49.235.206.214">shopping-mall-admin Demo</a>
+演示:<a href="http://whitepure.qicp.vip">shopping-mall Demo</a><br>
 
 
-<h3 style="#ccc">特别感谢</h3>
+<h3>特别感谢</h3>
 http://www.jq22.com/<br>
 https://github.com/
 <br>
-<span style="color:#ccc">希望可以帮到你~</span>
+<span>希望可以帮到你~</span>
