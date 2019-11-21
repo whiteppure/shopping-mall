@@ -8,9 +8,8 @@ https://note.youdao.com/ynoteshare1/index.html?id=f185e367693d6a0d4acc195807d10d
 
 <h2>接口演示</h2>
 <h4>1.导出Excel</h4>
-![Image text](./src/main/resources/static/image/readMe/excel.gif)
+![image](https://github.com/whitePure/shopping-mall/images/excel.gif)
 <h4>2.加入购物车</h4>
-![Image](https://github.com/whitePure/shopping-mall/images/cart.gif)
 ![image](https://github.com/AngelSXD/sxd_first_repository/blob/master/images/20160615165142.png)
 <h4>.支付功能</h4>
 ![Image text](./src/main/resources/static/image/readMe/pay.gif)
