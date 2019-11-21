@@ -1,5 +1,5 @@
 
-<h3>在线项目文档</h3>
+<h3>在线项目文档详细</h3>
 https://note.youdao.com/ynoteshare1/index.html?id=f185e367693d6a0d4acc195807d10da5&type=note
 <h2>shopping-mall</h2>
 <p>shopping是一个面向校园的二手商城交易系统,本系统用Java编写,
