@@ -495,9 +495,9 @@ CREATE TABLE `user` (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('17', 'while', '111', '11111111111', '13122256789@163.com', null, '普通用户', '13', '张三的店铺', '11', '1', '2019-07-03 21:05:48');
-INSERT INTO `user` VALUES ('48', 'admin1234', '58CF703F664397EC4F0AC359B84B565C', '22222222222', 'm15176733539@163.com', null, '普通用户', '29', 'admin1234的店铺', '27', '1', '2019-11-12 19:35:15');
+INSERT INTO `user` VALUES ('48', 'admin1234', '58CF703F664397EC4F0AC359B84B565C', '22222222222', '@163.com', null, '普通用户', '29', 'admin1234的店铺', '27', '1', '2019-11-12 19:35:15');
 INSERT INTO `user` VALUES ('49', 'admin', '58CF703F664397EC4F0AC359B84B565C', '33333333333', '123456@qq.com', null, '普通用户', '30', 'admin的店铺', '28', '1', '2019-11-12 20:03:15');
-INSERT INTO `user` VALUES ('50', 'admin666', 'AF8F9DFFA5D420FBC249141645B962EE', '15176733539', '12345446@qq.com', null, '普通用户', '31', 'admin666的店铺', '29', '1', '2019-11-20 17:07:31');
+INSERT INTO `user` VALUES ('50', 'admin666', 'AF8F9DFFA5D420FBC249141645B962EE', '11111111', '12345446@qq.com', null, '普通用户', '31', 'admin666的店铺', '29', '1', '2019-11-20 17:07:31');
 
 -- ----------------------------
 -- Table structure for user_address
@@ -520,9 +520,9 @@ CREATE TABLE `user_address` (
 -- ----------------------------
 INSERT INTO `user_address` VALUES ('13', '地址测试名称3', '1234567890', '河北省保定市莲池区长城北大街27号', '西苑123号', '17', '2019-07-06 18:15:37', '公司');
 INSERT INTO `user_address` VALUES ('42', 'while', '15299988888', '河北省张家口市太平南路福鼎小区', '赞~', '17', '2019-11-05 09:12:24', '家');
-INSERT INTO `user_address` VALUES ('43', 'admin1234', '15176733539', '', '', '48', '2019-11-12 19:35:16', '家');
-INSERT INTO `user_address` VALUES ('44', 'admin', '18830280167', '', '', '49', '2019-11-12 20:03:15', '家');
-INSERT INTO `user_address` VALUES ('45', 'admin666', '15176733539', '', '', '50', '2019-11-20 17:07:32', '家');
+INSERT INTO `user_address` VALUES ('43', 'admin1234', '', '', '', '48', '2019-11-12 19:35:16', '家');
+INSERT INTO `user_address` VALUES ('44', 'admin', '', '', '', '49', '2019-11-12 20:03:15', '家');
+INSERT INTO `user_address` VALUES ('45', 'admin666', '', '', '', '50', '2019-11-20 17:07:32', '家');
 
 -- ----------------------------
 -- Table structure for user_admin
