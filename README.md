@@ -26,12 +26,18 @@
 * [git基础操作](http://note.youdao.com/noteshare?id=e7067afd55327094ff33c8ef26dbea84)
 * [高德地图](http://note.youdao.com/noteshare?id=066364f09ec04f76937c65a7ca2658de&sub=E57F4CD71ED341DFAA5731545E13D957)
 
-### JavaSE 知识点
+### Java SE
 * [Java 基础](http://note.youdao.com/noteshare?id=69156f0401ee958e1de7ca1e189849b3&sub=7C333F2F1EC94CD79F810BF3F1C578FF)
 * [Java 容器](http://note.youdao.com/noteshare?id=63b1bc94a6fba6a14765bf1665d64c96&sub=AA31C1AE060A4F00A600C81C3A2FB40C)
 * [Java 数组](http://note.youdao.com/noteshare?id=ca3f141e3563d7c9c29904838b211ec7&sub=02E28CD9A66B4FAD941AFBEE533338EE)
 * [Java 多线程](http://note.youdao.com/noteshare?id=1a175389db77e6a394af7bdb96d0a331&sub=2A896523D56F42049BB372C679741E92)
 * [Java 排序算法](http://note.youdao.com/noteshare?id=48d1c8a2357c5607057f78d58869da42&sub=2516D8C55AE54FF399CA49B7F9E88D35)
+
+### Java Web
+* [cookie、session、token](http://note.youdao.com/noteshare?id=3248258b109400fdd4264fb63a553c42&sub=BD63A8B3EE9243868627962CB5DA37D5)
+* [servlet、jsp、重定向和转发](http://note.youdao.com/noteshare?id=8b218e62567d7899f4294bc69116af77&sub=186433E9E088448381EAA8DFAF86B80C)
+* [常见Java web容器](http://note.youdao.com/noteshare?id=35f271443d60534df06239a75b75a9dd&sub=7022B347B3BE4D6AAD301757E18B0923)
+* [网络](http://note.youdao.com/noteshare?id=af47ca30bbd8783a20efcaddf6ef0061&sub=6AD2410245CD47A5BCFEC00EA451F2F5)
 
 
 ### Java 框架
@@ -40,7 +46,6 @@
 * [spring boot](http://note.youdao.com/noteshare?id=4dac9ef61f23934e49b6438acef02646&sub=F874B71BA8444C489415982C513D351D)
 * [mybatis](http://note.youdao.com/noteshare?id=5826f5af9ecfec79442969c86acc9a01&sub=6FCEB9D4D771436184A06A8A95D2AB56)
 * [mybatis plus](https://mp.baomidou.com/)
-* [Java web容器](http://note.youdao.com/noteshare?id=35f271443d60534df06239a75b75a9dd&sub=7022B347B3BE4D6AAD301757E18B0923)
 
 
 ### Java 进阶
