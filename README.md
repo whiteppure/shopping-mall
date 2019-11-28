@@ -1,8 +1,8 @@
 ## 目录
 
-#### 某些知识点尚不全面 有待补充 
+#### 某些知识点尚不全面 有待补充 持续更新中...
 
-## [项目在线文档](https://github.com/whitePure/shopping-mall/blob/testBranch/README.md)
+## [项目在线文档https://github.com/whitePure/shopping-mall/blob/testBranch/README.md](https://github.com/whitePure/shopping-mall/blob/testBranch/README.md)
 
 <a href="#"><img alt="JDK" src="https://img.shields.io/badge/JDK-1.8-orange"/></a>
 <a href="#"><img alt="mybatisplus" src="https://img.shields.io/badge/mybatisplus-3.x-yellowgreen"/></a> 
