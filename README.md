@@ -2,8 +2,7 @@
 
 #### 某些知识点尚不全面 有待补充 持续更新中...
 
-## [项目在线文档https://github.com/whitePure/shopping-mall/blob/testBranch/README.md](https://github.com/whitePure/shopping-mall/blob/testBranch/README.md)
-
+#### [项目在线文档 https://github.com/whitePure/shopping-mall/blob/testBranch/README.md](https://github.com/whitePure/shopping-mall/blob/testBranch/README.md)
 <a href="#"><img alt="JDK" src="https://img.shields.io/badge/JDK-1.8-orange"/></a>
 <a href="#"><img alt="mybatisplus" src="https://img.shields.io/badge/mybatisplus-3.x-yellowgreen"/></a> 
 <a href="#"><img alt="mybatisplus" src="https://img.shields.io/badge/springboot-2.x-green"/></a>
@@ -45,7 +44,8 @@
 
 
 ### Java 进阶
-* [JVM](http://note.youdao.com/noteshare?id=0714d6698f948216c6ec5acb038dedaf&sub=WEB8402854294fa083b8bc2b4ba34a95149)
+* [JVM入门](http://note.youdao.com/noteshare?id=0714d6698f948216c6ec5acb038dedaf&sub=WEB8402854294fa083b8bc2b4ba34a95149)
+* [Java中的对象](http://note.youdao.com/noteshare?id=631f0e293587f3f48bf1e73bf9965de8&sub=1F3578E7C9E540BB98D205394093C4C2)
 * [Java设计模式](http://note.youdao.com/noteshare?id=c56a2db0a64379588eb92f2414714f5a&sub=0B3491A0B76B42B79A8AAAE09EC536B0)
 
 
